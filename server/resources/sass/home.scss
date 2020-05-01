@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  width: 100vw;
+  background-color: orange;
+
+  &__right-box {
+    display: flex;
+
+    li {
+      list-style: none;
+    }
+  }
+}
