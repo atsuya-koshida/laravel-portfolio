@@ -175,12 +175,33 @@ select {
   vertical-align: middle;
 }
 
-.header {
+.main-wrapper {
+  width: 100vw;
+  margin-top: 25px;
+}
+
+.main-wrapper__inner {
+  width: 90%;
   display: flex;
   justify-content: space-between;
+  margin: 0 auto;
+}
+
+.header {
   height: 50px;
   width: 100vw;
   background-color: orange;
+}
+
+.header__inner {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.header__left-box .main-title {
+  line-height: 50px;
 }
 
 .header__right-box {
@@ -190,6 +211,11 @@ select {
 .header__right-box li {
   line-height: 50px;
   list-style: none;
-  text-align: center;
+  padding: 0 10px;
+}
+
+.header__right-box li a {
+  text-decoration: none;
+  color: black;
 }
 

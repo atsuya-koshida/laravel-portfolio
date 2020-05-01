@@ -1,17 +1,11 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  height: 50px;
+.main-wrapper {
   width: 100vw;
-  background-color: orange;
+  margin-top: $headerHeight / 2;
 
-  &__right-box {
+  &__inner {
+    width: 90%;
     display: flex;
-
-    li {
-      line-height: 50px;
-      list-style: none;
-      text-align: center;
-    }
+    justify-content: space-between;
+    margin: 0 auto;
   }
 }
