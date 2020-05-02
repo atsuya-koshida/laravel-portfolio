@@ -1,0 +1,40 @@
+.big-btn {
+	display: inline-block;
+	position: relative;
+	width: 200px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	border-radius: 30px;
+  transition: transform ease .3s;
+
+  &.orange {
+    background: linear-gradient(90deg, rgba(235,187,18,1) 0%, rgba(235,118,18,1) 77%);
+  }
+
+  &.blue {
+    background: linear-gradient(90deg, rgba(18,185,235,1) 0%, rgba(89,18,235,1) 77%);
+  }
+
+  &.purple {
+    background: linear-gradient(90deg, rgba(213,18,235,1) 0%, rgba(63,18,235,1) 77%);
+  }
+
+  & span {
+    display: inline-block;
+    text-decoration: none;	
+    transition: transform ease .3s;
+  }
+  
+  &:hover {
+     cursor: pointer;
+     text-decoration: none;
+
+     & span{
+       cursor: pointer;
+       text-decoration: none;
+       transform: translateX(6px);
+     }
+  }
+}

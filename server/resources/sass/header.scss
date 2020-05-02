@@ -1,0 +1,33 @@
+.header {
+  height: $headerHeight;
+  width: 100vw;
+  background-color: orange;
+
+  &__inner {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+  &__left-box {
+    .main-title {
+      line-height: $headerHeight;
+    }
+  }
+
+  &__right-box {
+    display: flex;
+
+    li {
+      line-height: $headerHeight;
+      list-style: none;
+      padding: 0 10px;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}
