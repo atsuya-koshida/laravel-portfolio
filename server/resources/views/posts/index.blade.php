@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'トップページ')
+@section('title', '投稿一覧')
 
 @section('content')
   {{-- ヘッダー --}}
@@ -8,15 +8,16 @@
 
   <main class="main-wrapper">
     <div class="main-wrapper__inner">
-      {{-- トップページの画像 --}}
       <div class="main-container">
-        <div class="img-section">
-          <img src="/images/basket5.jpeg" alt="" class="main-image">
+        {{-- 絞り込み --}}
+        <div class="narrow-down">
+          <p>絞り込み</p>
+          <form action=""></form>
         </div>
-        {{-- 新着投稿 --}}
+        {{-- 投稿一覧 --}}
         <div class="post-section">
           <div class="post-section__title">
-            <p>新着投稿</p>
+            <p>投稿一覧</p>
           </div>
           {{-- 記事のカード --}}
           @include('shared/card')

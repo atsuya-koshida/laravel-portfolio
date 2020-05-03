@@ -241,6 +241,15 @@ select {
      object-fit: cover;
 }
 
+.main-container .narrow-down {
+  border: 1px solid;
+}
+
+.main-container .narrow-down p {
+  font-size: 20px;
+  border-bottom: 1px solid;
+}
+
 .main-container .post-section {
   margin-top: 20px;
 }
