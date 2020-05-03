@@ -241,15 +241,6 @@ select {
      object-fit: cover;
 }
 
-.main-container .narrow-down {
-  border: 1px solid;
-}
-
-.main-container .narrow-down p {
-  font-size: 20px;
-  border-bottom: 1px solid;
-}
-
 .main-container .post-section {
   margin-top: 20px;
 }
@@ -524,5 +515,113 @@ select {
     bottom: 0;
     z-index: -1;
   }
+}
+
+.narrow-down p {
+  font-size: 20px;
+  border-bottom: 1px solid;
+  padding-bottom: 10px;
+}
+
+.narrow-down form .search {
+  position: relative;
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.narrow-down form .search input[type=text] {
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  margin: 8px 0;
+  padding: 0.3em;
+  padding-left: 40px;
+  transition: 0.3s;
+  border: 1px solid #1b2538;
+  border-radius: 4px;
+  outline: none;
+}
+
+.narrow-down form .search input[type=text]:focus {
+  border-color: #e87a26;
+}
+
+.narrow-down form .search i {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  padding: 9px 8px;
+  transition: 0.3s;
+  color: #aaaaaa;
+}
+
+.narrow-down form .prefecture {
+  overflow: hidden;
+  width: 90%;
+  margin: 2em auto;
+  text-align: center;
+}
+
+.narrow-down form .prefecture select {
+  width: 100%;
+  padding-right: 1em;
+  cursor: pointer;
+  text-indent: 0.01px;
+  text-overflow: ellipsis;
+  border: none;
+  outline: none;
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+}
+
+.narrow-down form .prefecture select::-ms-expand {
+  display: none;
+}
+
+.narrow-down form .prefecture.select-box {
+  position: relative;
+  border: 1px solid #bbbbbb;
+  border-radius: 2px;
+  background: #ffffff;
+}
+
+.narrow-down form .prefecture.select-box::before {
+  position: absolute;
+  top: 0.8em;
+  right: 0.9em;
+  width: 0;
+  height: 0;
+  padding: 0;
+  content: "";
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #666666;
+  pointer-events: none;
+}
+
+.narrow-down form .prefecture.select-box select {
+  padding: 8px 38px 8px 8px;
+  color: #666666;
+}
+
+.narrow-down form .sort {
+  width: 90%;
+  margin: 2em auto;
+}
+
+.narrow-down form .sort ul {
+  display: flex;
+}
+
+.narrow-down form .sort ul li {
+  list-style: none;
+}
+
+.narrow-down form .sort ul li a {
+  margin: 0 5px;
 }
 
