@@ -2,12 +2,12 @@
   
   p {
     font-size: 20px;
-    border-bottom: 1px solid;
+    border-bottom: 1px solid rgb(181, 181, 181);
     padding-bottom: 10px;
   }
 
   form {
-    .search {
+    .search-box {
       position: relative;
       width: 90%;
       margin: 2rem auto;
@@ -20,14 +20,11 @@
         padding: 0.3em;
         padding-left: 40px;
         transition: 0.3s;
-        border: 1px solid #1b2538;
+        border: 1px solid rgb(181, 181, 181);
         border-radius: 4px;
         outline: none;
-
-        &:focus {
-          border-color: #e87a26;
-        }
       }
+
       i {
         position: absolute;
         top: 8px;
@@ -38,7 +35,7 @@
       }
     }
 
-    .prefecture {
+    .select-box {
       overflow: hidden;
       width: 90%;
       margin: 2em auto;
@@ -63,9 +60,9 @@
         }
       }
     
-      &.select-box {
+      &.selected {
         position: relative;
-        border: 1px solid #bbbbbb;
+        border: 1px solid rgb(181, 181, 181);
         border-radius: 2px;
         background: #ffffff;
     
@@ -89,20 +86,19 @@
         }
       }
     }
+  }
+  .sort {
+    width: 90%;
+    margin: 2em auto;
 
-    .sort {
-      width: 90%;
-      margin: 2em auto;
+    ul {
+      display: flex;
 
-      ul {
-        display: flex;
+      li {
+        list-style: none;
 
-        li {
-          list-style: none;
-
-          a {
-            margin: 0 5px;
-          }
+        a {
+          margin: 0 5px;
         }
       }
     }
