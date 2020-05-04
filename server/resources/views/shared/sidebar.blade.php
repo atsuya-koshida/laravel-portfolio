@@ -1,10 +1,10 @@
 <aside class="side-bar">
   <ul class="btn-group">
     <li>
-      <a href="#" class="big-btn orange">メンバーを募集する<span><i class="fas fa-arrow-circle-right fa-fw"></i></span></a>
+      <a href="{{ route('post.create') }}" class="big-btn orange">メンバーを募集する<span><i class="fas fa-arrow-circle-right fa-fw"></i></span></a>
     </li>
     <li>
-      <a href="#" class="big-btn blue">チームを探す<span><i class="fas fa-arrow-circle-right fa-fw"></i></span></a>
+      <a href="{{ route('post.index') }}" class="big-btn blue">チームを探す<span><i class="fas fa-arrow-circle-right fa-fw"></i></span></a>
     </li>
     <li>
       <a href="#" class="big-btn purple">チャット<span><i class="fas fa-arrow-circle-right fa-fw"></i></span></a>

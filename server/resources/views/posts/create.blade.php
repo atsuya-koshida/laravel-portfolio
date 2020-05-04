@@ -8,11 +8,12 @@
     <main class="main-wrapper">
       <div class="main-wrapper__inner">
         <div class="main-container">
-          <div class="post-section">
+          <div class="post-section new-post">
             <div class="post-section__title">
               <p>チーム募集を作成</p>
             </div>
             <form action="" method="POST">
+              @csrf
               <div class="text-box">
                 <label class="text-label">タイトル</label>
                 <input type="text" placeholder="タイトルを入力して下さい">

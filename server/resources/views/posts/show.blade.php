@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'メンバー募集作成')
+@section('title', 'メンバー募集詳細')
 
 @section('content')
     @include('shared/header')
