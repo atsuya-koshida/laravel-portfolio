@@ -38,3 +38,29 @@
      }
   }
 }
+
+.circle-btn {
+  display: inline-block;
+  position: relative;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #FFF;
+  width: 40px;
+  height: 40px;
+  line-height: 20px;
+  padding: 5px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: inset 0 2px 0px rgba(255, 255, 255, 0.25), inset 0 -2px 0px rgba(0, 0, 0, 0.18);
+  transition: .2s;
+  
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.circle-btn-blue {
+  background: #1da1f3;
+  border: solid 5px #1da1f3;
+}
