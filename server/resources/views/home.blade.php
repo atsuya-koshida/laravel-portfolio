@@ -4,7 +4,7 @@
 
 @section('content')
   {{-- ヘッダー --}}
-  @include('header')
+  @include('shared/header')
 
   <main class="main-wrapper">
     <div class="main-wrapper__inner">
@@ -19,13 +19,11 @@
             <p>新着投稿</p>
           </div>
           {{-- 記事のカード --}}
-          @include('card')
+          @include('shared/card')
         </div>
       </div>
-  
       {{-- サイドバー --}}
-      @include('sidebar')
+      @include('shared/sidebar')
     </div>
   </main>
-
 @endsection
