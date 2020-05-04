@@ -6,7 +6,7 @@
       </p>
     </div>
     <ul class="header__right-box">
-      <li><a href="#">マイページ</a></li>
+      <li><a href="{{ route('user.index') }}">マイページ</a></li>
       <li><a href="#">プロフィール編集</a></li>
       <li><a href="#">ログアウト</a></li>
     </ul>

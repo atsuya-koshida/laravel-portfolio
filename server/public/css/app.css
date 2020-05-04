@@ -522,6 +522,16 @@ select {
   }
 }
 
+.new-post {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 50px;
+}
+
+.narrow-down {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 50px;
+}
+
 .narrow-down p {
   font-size: 20px;
   border-bottom: 1px solid #b5b5b5;
@@ -770,5 +780,85 @@ textarea::-ms-input-placeholder {
 
 textarea::placeholder {
   color: #aaaaaa;
+}
+
+.user-section {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  padding: 50px;
+}
+
+.user-section__top {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #b5b5b5;
+}
+
+.user-section__top--left {
+  display: flex;
+}
+
+.user-section__top--left .user-image {
+  width: 50px;
+  height: 50px;
+}
+
+.user-section__top--left .user-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.user-section__top--left p {
+  line-height: 50px;
+  margin-left: 10px;
+}
+
+.user-section__top--right {
+  line-height: 50px;
+}
+
+.user-section__top--right .follow-btn {
+  color: #FFF;
+  /*文字・アイコン色*/
+  border-radius: 7px;
+  /*角丸に*/
+  display: inline-block;
+  height: 30px;
+  /*高さ*/
+  width: 100px;
+  /*幅*/
+  text-align: center;
+  /*中身を中央寄せ*/
+  line-height: 30px;
+  /*高さと合わせる*/
+  background: #5ad67d;
+  overflow: hidden;
+  /*はみ出た部分を隠す*/
+  text-decoration: none;
+  /*下線は消す*/
+  padding: 6px;
+}
+
+.user-section__top--right .follow-btn .fa-user-plus {
+  text-shadow: 2px 2px 0px #5ad67d;
+}
+
+.user-section__top--right .follow-btn span {
+  display: inline-block;
+  transition: 0.5s;
+}
+
+.user-section__top--right .follow-btn:hover span {
+  transform: rotateX(360deg);
+}
+
+.user-section__bottom {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.user-section__bottom p {
+  padding: 20px 10px 0;
 }
 
