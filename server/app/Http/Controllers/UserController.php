@@ -10,4 +10,9 @@ class UserController extends Controller
     {
         return view('users.index');
     }
+
+    public function edit()
+    {
+        return view('users.edit');
+    }
 }

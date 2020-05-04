@@ -18,4 +18,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('/post', 'PostController');
-Route::resource('/user', 'UserController');
+// Route::resource('/user', 'UserController');
+Route::view('user/edit', 'users.edit')->name('user.edit');
+Route::view('user/show', 'users.show')->name('user.show');

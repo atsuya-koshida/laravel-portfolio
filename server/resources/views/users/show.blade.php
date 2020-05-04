@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'トップページ')
+@section('title', 'マイページ')
 
 @section('content')
   {{-- ヘッダー --}}
