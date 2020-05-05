@@ -5,4 +5,5 @@
 @section('content')
   @include('shared/header')
   @include('shared/chat_side')
+
 @endsection
