@@ -23,3 +23,4 @@ Route::view('user/edit', 'users.edit')->name('user.edit');
 Route::view('user/show', 'users.show')->name('user.show'); 
 Route::view('group', 'groups.index')->name('group.index');
 Route::view('group/show', 'groups.show')->name('group.show');
+Route::view('group/create', 'groups.create')->name('group.create');

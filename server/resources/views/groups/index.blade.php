@@ -4,6 +4,8 @@
 
 @section('content')
   @include('shared/header')
-  @include('shared/chat_side')
+  <div class="chat-wrapper">
+    @include('shared/chat_side')
+  </div>
 
 @endsection
