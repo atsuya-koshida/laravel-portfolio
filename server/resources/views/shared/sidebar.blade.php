@@ -7,7 +7,7 @@
       <a href="{{ route('post.index') }}" class="big-btn blue">チームを探す<span><i class="fas fa-arrow-circle-right fa-fw"></i></span></a>
     </li>
     <li>
-      <a href="#" class="big-btn purple">チャット<span><i class="fas fa-arrow-circle-right fa-fw"></i></span></a>
+      <a href="{{ route('group.index') }}" class="big-btn purple">チャット<span><i class="fas fa-arrow-circle-right fa-fw"></i></span></a>
     </li>
   </ul>
   
