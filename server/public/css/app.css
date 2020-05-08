@@ -686,7 +686,8 @@ form .select-box.selected select {
 }
 
 .text-box input[type=text],
-.text-box input[type=email] {
+.text-box input[type=email],
+.text-box input[type=password] {
   font: 15px/24px sans-serif;
   box-sizing: border-box;
   width: 100%;
@@ -698,24 +699,25 @@ form .select-box.selected select {
   margin-top: 10px;
 }
 
-.text-box input[type=text]::-webkit-input-placeholder, .text-box input[type=email]::-webkit-input-placeholder {
+.text-box input[type=text]::-webkit-input-placeholder, .text-box input[type=email]::-webkit-input-placeholder, .text-box input[type=password]::-webkit-input-placeholder {
   color: #aaaaaa;
 }
 
-.text-box input[type=text]::-moz-placeholder, .text-box input[type=email]::-moz-placeholder {
+.text-box input[type=text]::-moz-placeholder, .text-box input[type=email]::-moz-placeholder, .text-box input[type=password]::-moz-placeholder {
   color: #aaaaaa;
 }
 
-.text-box input[type=text]:-ms-input-placeholder, .text-box input[type=email]:-ms-input-placeholder {
+.text-box input[type=text]:-ms-input-placeholder, .text-box input[type=email]:-ms-input-placeholder, .text-box input[type=password]:-ms-input-placeholder {
   color: #aaaaaa;
 }
 
-.text-box input[type=text]::-ms-input-placeholder, .text-box input[type=email]::-ms-input-placeholder {
+.text-box input[type=text]::-ms-input-placeholder, .text-box input[type=email]::-ms-input-placeholder, .text-box input[type=password]::-ms-input-placeholder {
   color: #aaaaaa;
 }
 
 .text-box input[type=text]::placeholder,
-.text-box input[type=email]::placeholder {
+.text-box input[type=email]::placeholder,
+.text-box input[type=password]::placeholder {
   color: #aaaaaa;
 }
 

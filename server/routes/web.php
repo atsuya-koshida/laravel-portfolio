@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/post', 'PostController');
@@ -22,3 +24,5 @@ Route::view('user/show', 'users.show')->name('user.show');
 Route::view('group', 'groups.index')->name('group.index');
 Route::view('group/show', 'groups.show')->name('group.show');
 Route::view('group/create', 'groups.create')->name('group.create');
+
+Route::get('/home', 'HomeController@index')->name('home');
