@@ -13,7 +13,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,22 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|max:50',
+            'team_name' => 'required|max:50',
+            'activity_place' => 'required|max:100',
+            'activity_time' => 'required|max:100',
+            'description' => 'required|max:500',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'title' => 'タイトル',
+            'team_name' => 'チーム名',
+            'activity_place' => '活動場所',
+            'activity_time' => '活動時間',
+            'description' => '詳しい説明',
         ];
     }
 }

@@ -12,15 +12,15 @@
             <div class="post-section__title">
               <p>チーム募集を作成</p>
             </div>
-            <form action="" method="POST">
+            <form action="{{ route('post.store') }}" method="POST">
               @csrf
               <div class="text-box">
                 <label class="text-label">タイトル</label>
-                <input type="text" placeholder="タイトルを入力して下さい">
+                <input name="title" type="text" placeholder="タイトルを入力して下さい">
               </div>
               <div class="text-box">
                 <label class="text-label">チーム名</label>
-                <input type="text" placeholder="チーム名を入力して下さい">
+                <input name="team_name" type="text" placeholder="チーム名を入力して下さい">
               </div>
               <div class="select-box selected">
                 <select>
@@ -33,11 +33,11 @@
               </div>
               <div class="text-box">
                 <label class="text-label">活動場所</label>
-                <input type="text" placeholder="活動場所を入力して下さい">
+                <input name="activity_place" type="text" placeholder="活動場所を入力して下さい">
               </div>
               <div class="text-box">
                 <label class="text-label">活動時間</label>
-                <input type="text" placeholder="活動時間を入力して下さい">
+                <input name="activity_time" type="text" placeholder="活動時間を入力して下さい">
               </div>
               <div class="text-box">
                 <p>詳しい説明</p>

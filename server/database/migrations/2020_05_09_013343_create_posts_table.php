@@ -20,8 +20,8 @@ class CreatePostsTable extends Migration
             $table->string('activity_place');
             $table->string('activity_time');
             $table->text('description');
-            $table->integer('region_id')->unsigned();
-            $table->foreign('region_id')->references('id')->on('regions');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
