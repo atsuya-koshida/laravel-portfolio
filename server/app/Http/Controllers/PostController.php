@@ -12,10 +12,11 @@ class PostController extends Controller
     {
         $this->authorizeResource(Post::class, 'post');
     }
-    
+
     public function index()
     {
-        return view('posts.index');
+        $posts = Post::all()->sortByDesc('created_at');
+        return view('posts.index', ['posts' => $posts]);
     }
 
     public function show(Post $post)
