@@ -25,4 +25,9 @@ class PostController extends Controller
         $post->save();
         return redirect()->route('home');
     }
+
+    public function edit(Post $post)
+    {
+        return view('posts.edit', ['post' => $post]);
+    }
 }

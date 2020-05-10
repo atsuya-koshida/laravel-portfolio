@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'メンバー募集作成')
+@section('title', 'メンバー募集編集')
 
 @section('content')
     @include('shared/header')
@@ -10,12 +10,13 @@
         <div class="main-container">
           <div class="post-section new-post">
             <div class="post-section__title">
-              <p>チーム募集を作成</p>
+              <p>チーム募集を編集</p>
             </div>
-            <form action="{{ route('post.store') }}" method="POST">
+            <form action="{{ route('post.update', ['post' => $post]) }}" method="POST">
+              @method('PATCH')
               @include('posts/form')
               <div class="submit-box">
-                <input type="submit" value="投稿する" class="submit-btn">
+                <input type="submit" value="更新する" class="submit-btn">
               </div>
             </form>
           </div>
