@@ -13,6 +13,11 @@ class PostController extends Controller
         return view('posts.index');
     }
 
+    public function show(Post $post)
+    {
+        return view('posts.show', ['post' => $post]);
+    }
+
     public function create()
     {
         return view('posts.create');
@@ -29,5 +34,17 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         return view('posts.edit', ['post' => $post]);
+    }
+
+    public function update(PostRequest $request, Post $post)
+    {
+        $post->fill($request->all())->save();
+        return redirect()->route('home');
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return redirect()->route('home');
     }
 }

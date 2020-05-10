@@ -14,7 +14,7 @@
   </div>
   <div class="description">
     <h1>{{ $post->title }}</h1>
-    <p>{{ $post->description }}</p>
+    <p>{!! nl2br(e($post->description)) !!}</p>
     <p class="read-more">
       <a href="{{ route('post.show', ['post' => $post]) }}">詳しく見る</a>
     </p>
