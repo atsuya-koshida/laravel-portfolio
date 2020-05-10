@@ -14,13 +14,13 @@
             </div>
             <div class="post-section__btn">
               <form action="{{ route('post.edit', ['post' => $post]) }}">
-                @csrf
-                <input type="submit" value="編集" class="edit-btn">
+                <button class="edit-btn">編集</button>
               </form>
+              {{-- <a href="{{ route('post.edit', ['post' => $post]) }}" class="edit-btn">編集</a> --}}
               <form method="POST" action="{{ route('post.destroy', ['post' => $post]) }}">
                 @csrf
                 @method('DELETE')
-                <input type="submit" value="削除" class="delete-btn" onclick='return confirm("本当に削除しますか？");'>
+                <button type="submit" class="delete-btn" onclick='return confirm("本当に削除しますか？");'>削除</button>
               </form>
             </div>
             <table>
