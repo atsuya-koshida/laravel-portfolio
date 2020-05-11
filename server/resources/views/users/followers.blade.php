@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('title', 'マイページ')
+@section('title', $user->name . 'のフォロワー')
 
 @section('content')
   {{-- ヘッダー --}}
@@ -10,8 +10,10 @@
     <div class="main-wrapper__inner">
       <div class="main-container">
         {{-- ユーザー情報 --}}
+        <p class="user-section__title">{{ $user->name }}のフォロワー</p>
         <div class="user-section">
-          <div class="user-section__top">
+          @foreach ($followers as $user)
+          <div class="user-section__top" style="margin-bottom: 15px;">
             <div class="user-section__top--left">
               <div class="user-image">
                 <img src="/images/noimageblack.png" alt="noimage">
@@ -28,19 +30,6 @@
             </follow-button>
             @endif
           </div>
-          <div class="user-section__bottom">
-            <p class="user-position">ポジション：PG</p>
-            <p class="user-follow">フォロー：<a href="#">{{ $user->count_followings }}</a></p>
-            <p class="user-follower">フォロワー：<a href="#">{{ $user->count_followers }}</a></p>
-          </div>
-        </div>
-        <div class="post-section">
-          <div class="post-section__title">
-            <p>{{ $user->name }}の投稿一覧</p>
-          </div>
-          {{-- 記事のカード --}}
-          @foreach ($posts as $post)
-          @include('shared/card')
           @endforeach
         </div>
       </div>
