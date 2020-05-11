@@ -22,29 +22,17 @@ class UserController extends Controller
         return view('users.edit');
     }
 
-    public function follow(Request $request, User $user)
+    public function checkedYourself($request, $user) 
     {
         if ($user->id === $request->user()->id)
         {
-            return abort('404', 'Cannot follow yourself.');
+          return abort('404', 'Cannot follow yourself.');
         }
-
-        $request->user()->followings()->detach($user);
-        $request->user()->followings()->attach($user);
-
-        return ['user' => $user];
     }
 
-    public function unfollow(Request $request, User $user)
+    public function detachData(Request $request, User $user)
     {
-        if ($user->id === $request->user()->id)
-        {
-            return abort('404', 'Cannot follow yourself.');
-        }
-
         $request->user()->followings()->detach($user);
-        
-        return ['user' => $user];
     }
 
     public function followings(User $user)
@@ -65,5 +53,20 @@ class UserController extends Controller
             'user' => $user,
             'followers' => $followers,
         ]);
+    }
+
+    public function follow(Request $request, User $user)
+    {
+        $this->checkedYourself($request, $user);
+        $this->detachData($request, $user);
+        $request->user()->followings()->attach($user);
+        return ['user' => $user];
+    }
+
+    public function unfollow(Request $request, User $user)
+    {
+        $this->checkedYourself($request, $user);
+        $this->detachData($request, $user);
+        return ['user' => $user];
     }
 }

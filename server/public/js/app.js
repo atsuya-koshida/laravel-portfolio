@@ -1952,7 +1952,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       type: Boolean,
       "default": false
     },
-    endpoint: {
+    endPoint: {
       type: String
     }
   },
@@ -1991,7 +1991,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context.prev = _context.next) {
               case 0:
                 _context.next = 2;
-                return axios.put(_this.endpoint);
+                return axios.put(_this.endPoint);
 
               case 2:
                 response = _context.sent;
@@ -2015,7 +2015,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 _context2.next = 2;
-                return axios["delete"](_this2.endpoint);
+                return axios["delete"](_this2.endPoint);
 
               case 2:
                 response = _context2.sent;

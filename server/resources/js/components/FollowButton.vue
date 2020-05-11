@@ -23,7 +23,7 @@
         type: Boolean,
         default: false,
       },
-      endpoint: {
+      endPoint: {
         type: String,
       },
     },
@@ -61,12 +61,12 @@
           : this.follow()
       },
       async follow() {
-        const response = await axios.put(this.endpoint)
+        const response = await axios.put(this.endPoint)
 
         this.isFollowedBy = true
       },
       async unfollow() {
-        const response = await axios.delete(this.endpoint)
+        const response = await axios.delete(this.endPoint)
 
         this.isFollowedBy = false
       },

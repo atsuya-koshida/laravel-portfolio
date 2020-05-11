@@ -23,7 +23,7 @@
             <follow-button
             :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
             :authorized='@json(Auth::check())'
-            endpoint="{{ route('user.follow', ['user' => $user]) }}"
+            end-point="{{ route('user.follow', ['user' => $user]) }}"
             >
             </follow-button>
             @endif
