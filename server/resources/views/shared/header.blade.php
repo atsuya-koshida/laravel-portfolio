@@ -6,9 +6,20 @@
       </p>
     </div>
     <ul class="header__right-box">
-      <li><a href="{{ route('user.show') }}">マイページ</a></li>
-      <li><a href="{{ route('user.edit') }}">プロフィール編集</a></li>
-      <li><a href="#">ログアウト</a></li>
+      @guest
+        <li><a href="{{ route('register') }}">新規登録</a></li>
+        <li><a href="{{ route('login') }}">ログイン</a></li>
+      @endguest
+      @auth
+        <li><a href="{{ route('user.show') }}">マイページ</a></li>
+        <li><a href="{{ route('user.edit') }}">プロフィール編集</a></li>
+        <li>
+          <form name="logout" id="logout-button" method="POST" action="{{ route('logout') }}">
+            @csrf
+            <a href="javascript:logout.submit()">ログアウト</a>
+          </form>
+        </li>
+      @endauth
     </ul>
   </div>
 </header>

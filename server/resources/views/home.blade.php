@@ -19,7 +19,9 @@
             <p>新着投稿</p>
           </div>
           {{-- 記事のカード --}}
-          @include('shared/card')
+          @foreach ($posts as $post)
+            @include('shared/card')
+          @endforeach
         </div>
       </div>
       {{-- サイドバー --}}
