@@ -1936,13 +1936,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     buttonColor: function buttonColor() {
-      return this.isFollowedBy ? 'followed-btn' : 'follow-btn';
+      return this.isFollowedBy ? 'follow-btn' : 'followed-btn';
     },
     buttonIcon: function buttonIcon() {
-      return this.isFollowedBy ? 'fas fa-user-check' : 'fas fa-user-plus';
+      return this.isFollowedBy ? 'fas fa-user-plus' : 'fas fa-user-check';
     },
     buttonText: function buttonText() {
-      return this.isFollowedBy ? 'フォロー中' : 'フォロー';
+      return this.isFollowedBy ? 'フォロー' : 'フォロー中';
     }
   }
 });

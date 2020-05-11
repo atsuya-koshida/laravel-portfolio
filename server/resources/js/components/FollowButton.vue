@@ -28,18 +28,18 @@
     computed: {
       buttonColor() {
         return this.isFollowedBy
-          ? 'followed-btn'
-          : 'follow-btn'
+          ? 'follow-btn'
+          : 'followed-btn'
       },
       buttonIcon() {
         return this.isFollowedBy
-          ? 'fas fa-user-check'
-          : 'fas fa-user-plus'
+          ? 'fas fa-user-plus'
+          : 'fas fa-user-check'
       },
       buttonText() {
         return this.isFollowedBy
-          ? 'フォロー中'
-          : 'フォロー'
+          ? 'フォロー'
+          : 'フォロー中'
       },
     },
   }
