@@ -974,25 +974,26 @@ textarea::placeholder {
 }
 
 .user-section__top--right .follow-btn {
-  color: #5ad67d;
-  /*文字・アイコン色*/
-  border-radius: 7px;
-  /*角丸に*/
   display: inline-block;
-  height: 30px;
-  /*高さ*/
   width: 100px;
   /*幅*/
-  text-align: center;
-  /*中身を中央寄せ*/
+  height: 30px;
+  /*高さ*/
   line-height: 30px;
   /*高さと合わせる*/
+  text-align: center;
+  /*中身を中央寄せ*/
+  color: #5ad67d;
+  /*文字・アイコン色*/
   background: #fff;
   overflow: hidden;
   /*はみ出た部分を隠す*/
+  cursor: pointer;
   text-decoration: none;
   /*下線は消す*/
   border: 1px solid #5ad67d;
+  border-radius: 7px;
+  /*角丸に*/
   bottom: 0;
   padding: 6px;
 }
@@ -1011,24 +1012,25 @@ textarea::placeholder {
 }
 
 .user-section__top--right .followed-btn {
-  color: #FFF;
-  /*文字・アイコン色*/
-  border-radius: 7px;
-  /*角丸に*/
   display: inline-block;
-  height: 30px;
-  /*高さ*/
   width: 100px;
   /*幅*/
-  text-align: center;
-  /*中身を中央寄せ*/
+  height: 30px;
+  /*高さ*/
   line-height: 30px;
   /*高さと合わせる*/
+  text-align: center;
+  /*中身を中央寄せ*/
+  color: #FFF;
+  /*文字・アイコン色*/
   background: #5ad67d;
   overflow: hidden;
   /*はみ出た部分を隠す*/
+  cursor: pointer;
   text-decoration: none;
   /*下線は消す*/
+  border-radius: 7px;
+  /*角丸に*/
   bottom: 0;
   padding: 6px;
 }

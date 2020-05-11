@@ -22,6 +22,8 @@
             @if( Auth::id() !== $user->id )
             <follow-button
               :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
+              :authorized='@json(Auth::check())'
+              endpoint="{{ route('follow', ['user' => $user]) }}"
             >
             </follow-button>
             @endif

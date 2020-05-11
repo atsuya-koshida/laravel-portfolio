@@ -3,6 +3,7 @@
     <a
       class="follow-btn"
       :class="buttonColor"
+      @click="clickFollow"
     >
       <i
         :class="buttonIcon"
@@ -19,6 +20,13 @@
         type: Boolean,
         default: false,
       },
+      authorized: {
+        type: Boolean,
+        default: false,
+      },
+      endpoint: {
+        type: String,
+      },
     },
     data() {
       return {
@@ -28,18 +36,41 @@
     computed: {
       buttonColor() {
         return this.isFollowedBy
-          ? 'follow-btn'
-          : 'followed-btn'
+          ? 'followed-btn'
+          : 'follow-btn'
       },
       buttonIcon() {
         return this.isFollowedBy
-          ? 'fas fa-user-plus'
-          : 'fas fa-user-check'
+          ? 'fas fa-user-check'
+          : 'fas fa-user-plus'
       },
       buttonText() {
         return this.isFollowedBy
-          ? 'フォロー'
-          : 'フォロー中'
+          ? 'フォロー中'
+          : 'フォロー'
+      },
+    },
+    methods: {
+      clickFollow() {
+        if (!this.authorized) {
+          alert('フォロー機能はログイン中のみ使用できます')
+          return
+        }
+
+        this.isFollowedBy
+          ? this.unfollow()
+          : this.follow()
+      },
+      async follow() {
+        const data = { id: this.id }
+        const response = await axios.put(this.endpoint)
+
+        this.isFollowedBy = true
+      },
+      async unfollow() {
+        const response = await axios.delete(this.endpoint)
+
+        this.isFollowedBy = false
       },
     },
   }
