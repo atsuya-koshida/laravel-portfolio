@@ -30,8 +30,8 @@
           </div>
           <div class="user-section__bottom">
             <p class="user-position">ポジション：PG</p>
-            <p class="user-follow">フォロー：<a href="#">{{ $user->count_followings }}</a></p>
-            <p class="user-follower">フォロワー：<a href="#">{{ $user->count_followers }}</a></p>
+            <p class="user-follow">フォロー：<a href="{{ route('user.followings', ['user' => $user]) }}">{{ $user->count_followings }}</a></p>
+            <p class="user-follower">フォロワー：<a href="{{ route('user.followers', ['user' => $user]) }}">{{ $user->count_followers }}</a></p>
           </div>
         </div>
         <div class="post-section">
