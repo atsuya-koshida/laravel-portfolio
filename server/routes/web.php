@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/post', 'PostController')->middleware('auth');
 Route::resource('/user', 'UserController');
 
-Route::prefix('users')->name('users.')->group(function() {
+Route::prefix('user')->name('user.')->group(function() {
   Route::middleware('auth')->group(function() {
     Route::put('/follow/{user}', 'UserController@follow')->name('follow');
     Route::delete('/follow/{user}', 'UserController@unfollow')->name('unfollow');
