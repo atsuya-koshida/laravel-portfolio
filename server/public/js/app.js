@@ -1942,7 +1942,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     initialIsFollowedBy: {
@@ -1986,22 +1985,19 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var data, response;
+        var response;
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                data = {
-                  id: _this.id
-                };
-                _context.next = 3;
+                _context.next = 2;
                 return axios.put(_this.endpoint);
 
-              case 3:
+              case 2:
                 response = _context.sent;
                 _this.isFollowedBy = true;
 
-              case 5:
+              case 4:
               case "end":
                 return _context.stop();
             }
@@ -38423,18 +38419,10 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "user-section__top--right" }, [
-    _c(
-      "a",
-      {
-        staticClass: "follow-btn",
-        class: _vm.buttonColor,
-        on: { click: _vm.clickFollow }
-      },
-      [
-        _c("i", { class: _vm.buttonIcon }),
-        _vm._v("\n    " + _vm._s(_vm.buttonText) + "\n  ")
-      ]
-    )
+    _c("a", { class: _vm.buttonColor, on: { click: _vm.clickFollow } }, [
+      _c("i", { class: _vm.buttonIcon }),
+      _vm._v("\n    " + _vm._s(_vm.buttonText) + "\n  ")
+    ])
   ])
 }
 var staticRenderFns = []

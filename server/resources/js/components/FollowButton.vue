@@ -1,7 +1,6 @@
 <template>
   <div class="user-section__top--right">
     <a
-      class="follow-btn"
       :class="buttonColor"
       @click="clickFollow"
     >
@@ -62,7 +61,6 @@
           : this.follow()
       },
       async follow() {
-        const data = { id: this.id }
         const response = await axios.put(this.endpoint)
 
         this.isFollowedBy = true
@@ -75,3 +73,5 @@
     },
   }
 </script>
+
+

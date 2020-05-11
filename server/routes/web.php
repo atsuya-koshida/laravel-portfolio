@@ -19,10 +19,17 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/post', 'PostController')->middleware('auth');
 Route::resource('/user', 'UserController');
-Route::middleware('auth')->group(function() {
-  Route::put('/follow/{user}', 'UserController@follow')->name('follow');
-  Route::delete('/follow/{user}', 'UserController@unfollow')->name('unfollow');
+
+Route::prefix('users')->name('users.')->group(function() {
+  Route::middleware('auth')->group(function() {
+    Route::put('/follow/{user}', 'UserController@follow')->name('follow');
+    Route::delete('/follow/{user}', 'UserController@unfollow')->name('unfollow');
+  });
+  Route::get('/followings/{user}', 'UserController@followings')->name('followings');
+  Route::get('/followers/{user}', 'UserController@followers')->name('followers');
 });
+
+
 Route::view('group', 'groups.index')->name('group.index');
 Route::view('group/show', 'groups.show')->name('group.show');
 Route::view('group/create', 'groups.create')->name('group.create');

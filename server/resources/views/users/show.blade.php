@@ -21,17 +21,17 @@
             {{-- フォローボタン --}}
             @if( Auth::id() !== $user->id )
             <follow-button
-              :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
-              :authorized='@json(Auth::check())'
-              endpoint="{{ route('follow', ['user' => $user]) }}"
+            :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
+            :authorized='@json(Auth::check())'
+            endpoint="{{ route('users.follow', ['user' => $user]) }}"
             >
             </follow-button>
             @endif
           </div>
           <div class="user-section__bottom">
             <p class="user-position">ポジション：PG</p>
-            <p class="user-follow">フォロー：<a href="#">10</a></p>
-            <p class="user-follower">フォロワー：<a href="#">10</a></p>
+            <p class="user-follow">フォロー：<a href="#">{{ $user->count_followings }}</a></p>
+            <p class="user-follower">フォロワー：<a href="#">{{ $user->count_followers }}</a></p>
           </div>
         </div>
         <div class="post-section">

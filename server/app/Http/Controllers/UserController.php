@@ -46,4 +46,24 @@ class UserController extends Controller
         
         return ['user' => $user];
     }
+
+    public function followings(User $user)
+    {
+        $followings = $user->followings->sortByDesc('created_at');
+
+        return view('users.followings', [
+            'user' => $user,
+            'followings' => $followings,
+        ]);
+    }
+
+    public function followers(User $user)
+    {
+        $followers = $user->followers->sortByDesc('created_at');
+
+        return view('users.followers', [
+            'user' => $user,
+            'followers' => $followers,
+        ]);
+    }
 }
