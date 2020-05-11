@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
+
+    public function show(User $user)
     {
-        return view('users.index');
+        $posts = $user->posts->sortByDesc('created_at');
+        return view('users.show', [
+            'user' => $user,
+            'posts' => $posts,
+        ]);
     }
 
     public function edit()

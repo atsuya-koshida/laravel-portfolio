@@ -2,7 +2,7 @@
   <div class="meta">
     <img src="/images/basket6.jpeg" class="photo">
     <ul class="details">
-      <li class="author"><a href="#">{{ $post->user->name }}</a></li>
+      <li class="author"><a href="{{ route('user.show', ['user' => $post->user_id]) }}">{{ $post->user->name }}</a></li>
       <li class="date">{{ $post->created_at->format('Y/m/d H:i') }}</li>
       <li class="tags">
         <ul>

@@ -16,7 +16,7 @@
               <div class="user-image">
                 <img src="/images/noimageblack.png" alt="noimage">
               </div>
-              <p>ユーザー名</p>
+              <p>{{ $user->name }}</p>
             </div>
             {{-- フォローボタン --}}
             <div class="user-section__top--right">
@@ -33,10 +33,12 @@
         </div>
         <div class="post-section">
           <div class="post-section__title">
-            <p>○○○の投稿一覧</p>
+            <p>{{ $user->name }}の投稿一覧</p>
           </div>
           {{-- 記事のカード --}}
+          @foreach ($posts as $post)
           @include('shared/card')
+          @endforeach
         </div>
       </div>
       {{-- サイドバー --}}
