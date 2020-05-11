@@ -21,6 +21,7 @@
             {{-- フォローボタン --}}
             @if( Auth::id() !== $user->id )
             <follow-button
+              :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
             >
             </follow-button>
             @endif
