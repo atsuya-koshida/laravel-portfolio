@@ -949,6 +949,7 @@ textarea::placeholder {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid #b5b5b5;
+  padding-bottom: 15px;
 }
 
 .user-section__top--left {
@@ -972,11 +973,44 @@ textarea::placeholder {
   margin-left: 10px;
 }
 
-.user-section__top--right {
-  line-height: 50px;
+.user-section__top--right .follow-btn {
+  color: #5ad67d;
+  /*文字・アイコン色*/
+  border-radius: 7px;
+  /*角丸に*/
+  display: inline-block;
+  height: 30px;
+  /*高さ*/
+  width: 100px;
+  /*幅*/
+  text-align: center;
+  /*中身を中央寄せ*/
+  line-height: 30px;
+  /*高さと合わせる*/
+  background: #fff;
+  overflow: hidden;
+  /*はみ出た部分を隠す*/
+  text-decoration: none;
+  /*下線は消す*/
+  border: 1px solid #5ad67d;
+  bottom: 0;
+  padding: 6px;
 }
 
-.user-section__top--right .follow-btn {
+.user-section__top--right .follow-btn .fa-user-plus {
+  text-shadow: 2px 2px 0px #fff;
+}
+
+.user-section__top--right .follow-btn span {
+  display: inline-block;
+  transition: 0.5s;
+}
+
+.user-section__top--right .follow-btn:hover span {
+  transform: rotateX(360deg);
+}
+
+.user-section__top--right .followed-btn {
   color: #FFF;
   /*文字・アイコン色*/
   border-radius: 7px;
@@ -995,19 +1029,20 @@ textarea::placeholder {
   /*はみ出た部分を隠す*/
   text-decoration: none;
   /*下線は消す*/
+  bottom: 0;
   padding: 6px;
 }
 
-.user-section__top--right .follow-btn .fa-user-plus {
+.user-section__top--right .followed-btn .fa-user-plus {
   text-shadow: 2px 2px 0px #5ad67d;
 }
 
-.user-section__top--right .follow-btn span {
+.user-section__top--right .followed-btn span {
   display: inline-block;
   transition: 0.5s;
 }
 
-.user-section__top--right .follow-btn:hover span {
+.user-section__top--right .followed-btn:hover span {
   transform: rotateX(360deg);
 }
 

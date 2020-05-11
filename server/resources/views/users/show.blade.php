@@ -19,11 +19,11 @@
               <p>{{ $user->name }}</p>
             </div>
             {{-- フォローボタン --}}
-            <div class="user-section__top--right">
-              <a href="#" class="follow-btn">
-                <i class="fas fa-user-plus"></i> <span>Follow</span>
-              </a>
-            </div>
+            @if( Auth::id() !== $user->id )
+            <follow-button
+            >
+            </follow-button>
+            @endif
           </div>
           <div class="user-section__bottom">
             <p class="user-position">ポジション：PG</p>

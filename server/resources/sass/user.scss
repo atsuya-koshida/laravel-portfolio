@@ -13,6 +13,7 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid rgb(181, 181, 181);
+    padding-bottom: 15px;
 
     &--left {
       display: flex;
@@ -35,9 +36,38 @@
     }
 
     &--right {
-      line-height: 50px;
 
       .follow-btn {
+        color: #5ad67d;/*文字・アイコン色*/
+        border-radius: 7px;/*角丸に*/
+        display: inline-block;
+        height: 30px;/*高さ*/
+        width: 100px;/*幅*/
+        text-align: center;/*中身を中央寄せ*/
+        line-height: 30px;/*高さと合わせる*/
+        background: #fff;
+        overflow: hidden;/*はみ出た部分を隠す*/
+        text-decoration:none;/*下線は消す*/
+        border: 1px solid #5ad67d;
+        bottom: 0;
+        padding: 6px;
+
+        .fa-user-plus {
+          text-shadow: 2px 2px 0px #fff;
+        }
+
+        span {
+          display:inline-block;
+          transition: .5s;
+        }
+
+        &:hover span {
+          -webkit-transform: rotateX(360deg);
+          transform: rotateX(360deg);
+        }
+      }
+
+      .followed-btn {
         color: #FFF;/*文字・アイコン色*/
         border-radius: 7px;/*角丸に*/
         display: inline-block;
@@ -48,6 +78,7 @@
         background: #5ad67d;
         overflow: hidden;/*はみ出た部分を隠す*/
         text-decoration:none;/*下線は消す*/
+        bottom: 0;
         padding: 6px;
 
         .fa-user-plus {
