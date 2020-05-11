@@ -21,4 +21,29 @@ class UserController extends Controller
     {
         return view('users.edit');
     }
+
+    public function follow(Request $request, User $user)
+    {
+        if ($user->id === $request->user()->id)
+        {
+            return abort('404', 'Cannot follow yourself.');
+        }
+
+        $request->user()->followings()->detach($user);
+        $request->user()->followings()->attach($user);
+
+        return ['user' => $user];
+    }
+
+    public function unfollow(Request $request, User $user)
+    {
+        if ($user->id === $request->user()->id)
+        {
+            return abort('404', 'Cannot follow yourself.');
+        }
+
+        $request->user()->followings()->detach($user);
+        
+        return ['user' => $user];
+    }
 }
