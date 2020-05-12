@@ -19,6 +19,7 @@
                 <input type="text" placeholder="グループ名を入力して下さい">
               </div>
               <div class="search-box">
+                <label class="text-label">ユーザーを追加</label>
                 <input type="text" placeholder="検索">
                 <i class="fas fa-search"></i>
               </div>
