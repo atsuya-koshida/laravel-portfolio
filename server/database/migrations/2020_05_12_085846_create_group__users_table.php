@@ -14,7 +14,11 @@ class CreateGroupUsersTable extends Migration
     public function up()
     {
         Schema::create('group__users', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->integer('group_id')->unsigned();
+            $table->foreign('group_id')->references('id')->on('groups')->onDelete('cascade');
             $table->timestamps();
         });
     }
