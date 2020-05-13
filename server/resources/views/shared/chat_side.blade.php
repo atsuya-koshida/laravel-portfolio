@@ -7,67 +7,7 @@
   </div>
   <div class="groups">
     <div class="group">
-      <a href="{{ route('group.show') }}">
-        <p class="group__name">グループ名</p>
-        <p class="group__latest-message">最新のメッセージ</p>
-      </a>
-    </div>
-    <div class="group">
-      <a href="{{ route('group.show') }}">
-        <p class="group__name">グループ名</p>
-        <p class="group__latest-message">最新のメッセージ</p>
-      </a>
-    </div>
-    <div class="group">
-      <a href="{{ route('group.show') }}">
-        <p class="group__name">グループ名</p>
-        <p class="group__latest-message">最新のメッセージ</p>
-      </a>
-    </div>
-    <div class="group">
-      <a href="{{ route('group.show') }}">
-        <p class="group__name">グループ名</p>
-        <p class="group__latest-message">最新のメッセージ</p>
-      </a>
-    </div>
-    <div class="group">
-      <a href="{{ route('group.show') }}">
-        <p class="group__name">グループ名</p>
-        <p class="group__latest-message">最新のメッセージ</p>
-      </a>
-    </div>
-    <div class="group">
-      <a href="{{ route('group.show') }}">
-        <p class="group__name">グループ名</p>
-        <p class="group__latest-message">最新のメッセージ</p>
-      </a>
-    </div>
-    <div class="group">
-      <a href="{{ route('group.show') }}">
-        <p class="group__name">グループ名</p>
-        <p class="group__latest-message">最新のメッセージ</p>
-      </a>
-    </div>
-    <div class="group">
-      <a href="{{ route('group.show') }}">
-        <p class="group__name">グループ名</p>
-        <p class="group__latest-message">最新のメッセージ</p>
-      </a>
-    </div>
-    <div class="group">
-      <a href="{{ route('group.show') }}">
-        <p class="group__name">グループ名</p>
-        <p class="group__latest-message">最新のメッセージ</p>
-      </a>
-    </div>
-    <div class="group">
-      <a href="{{ route('group.show') }}">
-        <p class="group__name">グループ名</p>
-        <p class="group__latest-message">最新のメッセージ</p>
-      </a>
-    </div>
-    <div class="group">
-      <a href="{{ route('group.show') }}">
+      <a href="#">
         <p class="group__name">グループ名</p>
         <p class="group__latest-message">最新のメッセージ</p>
       </a>

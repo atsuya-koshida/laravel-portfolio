@@ -19,6 +19,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/post', 'PostController')->middleware('auth');
 Route::resource('/user', 'UserController');
+Route::resource('/group', 'GroupController')->middleware('auth');
 
 Route::prefix('user')->name('user.')->group(function() {
   Route::middleware('auth')->group(function() {
@@ -30,6 +31,6 @@ Route::prefix('user')->name('user.')->group(function() {
 });
 
 
-Route::view('group', 'groups.index')->name('group.index');
-Route::view('group/show', 'groups.show')->name('group.show');
-Route::view('group/create', 'groups.create')->name('group.create');
+// Route::view('group', 'groups.index')->name('group.index');
+// Route::view('group/show', 'groups.show')->name('group.show');
+// Route::view('group/create', 'groups.create')->name('group.create');
