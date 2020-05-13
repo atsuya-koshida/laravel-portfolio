@@ -11,14 +11,15 @@
     <div class="chat-main">
       <div class="chat-header">
         <div class="chat-header__left">
-          <p class="group-name">グループ1</p>
+          <p class="group-name">{{ $group->name }}</p>
           <p class="group-member">
-          test
-          test2
+          @foreach($group->users as $user)
+         {{  $user->name }}
+          @endforeach
           </p>
           </div>
         <div class="chat-header__right">
-          <a href="#" class="edit-btn">編集</a>
+          <a href="{{ route('group.edit', ['group' => $group]) }}" class="edit-btn">編集</a>
         </div>
       </div>
       <div class="chat-messages">

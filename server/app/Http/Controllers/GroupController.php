@@ -7,12 +7,27 @@ use App\User;
 use App\Http\Requests\GroupRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class GroupController extends Controller
 {
     public function index()
     {
-        return view('groups.index');
+        $user = Auth::user();
+        $groups = $user->groups->sortByDesc('created_at');
+        return view('groups.index', [
+            'groups' => $groups,
+        ]);
+    }
+
+    public function show(Group $group)
+    {
+        $user = Auth::user();
+        $groups = $user->groups->sortByDesc('created_at');
+        return view('groups.show', [
+            'group' => $group,
+            'groups' => $groups,
+            ]);
     }
 
     public function create(Group $group)
@@ -25,9 +40,20 @@ class GroupController extends Controller
         $group->fill($request->all());
         $user = $request->user();
         $group->save();
-        Log::debug($group);
         $group->users()->attach($user->id);
         
         return redirect()->route('group.index');
+    }
+
+    public function edit(Group $group)
+    {
+        return view('groups.edit', ['group' => $group]);
+    }
+
+    public function update(GroupRequest $request, Group $group)
+    {
+        $group->fill($request->all());
+        $group->save();
+        return redirect()->route('group.show', ['group' => $group]);
     }
 }
