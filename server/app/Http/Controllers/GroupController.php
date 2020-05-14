@@ -30,18 +30,21 @@ class GroupController extends Controller
             ]);
     }
 
-    public function create(Group $group)
+    public function create()
     {
-        return view('groups.create');
+        $users = User::all();
+        return view('groups.create', ['users' => $users]);
     }
 
     public function store(GroupRequest $request, Group $group)
     {
         $group->fill($request->all());
-        $user = $request->user();
+        $users = $request->users;
         $group->save();
-        $group->users()->attach($user->id);
-        
+        foreach ($users as $key => $user) {
+            $group->users()->attach($user);
+        }
+        $group->users()->attach(Auth::user());
         return redirect()->route('group.index');
     }
 

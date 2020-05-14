@@ -13,6 +13,7 @@
         <div class="chat-header__left">
           <p class="group-name">{{ $group->name }}</p>
           <p class="group-member">
+            メンバー：
           @foreach($group->users as $user)
          {{  $user->name }}
           @endforeach

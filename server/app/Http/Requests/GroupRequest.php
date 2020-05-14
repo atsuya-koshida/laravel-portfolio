@@ -25,6 +25,12 @@ class GroupRequest extends FormRequest
     {
         return [
             'name' => 'required|max:50',
+            'users',
         ];
+    }
+
+    public function passedValidation()
+    {
+        $this->users = collect($this->users);
     }
 }
