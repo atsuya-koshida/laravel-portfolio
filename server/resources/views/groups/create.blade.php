@@ -20,7 +20,7 @@
               </div>
               <div class="check-box">
                 <h1>ユーザーを追加</h1>
-                @foreach ($users as $user)
+                @foreach ($followings as $user)
                 @if ($user->id !== Auth::user()->id)
                 <input name="users[]" value="{{ $user->id }}" type="checkbox"/>
                 <label>{{ $user->name }}</label>

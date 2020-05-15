@@ -27,13 +27,14 @@ class GroupController extends Controller
         return view('groups.show', [
             'group' => $group,
             'groups' => $groups,
-            ]);
+        ]);
     }
 
     public function create()
     {
-        $users = User::all();
-        return view('groups.create', ['users' => $users]);
+        $user = Auth::user();
+        $followings = $user->followings;
+        return view('groups.create', ['followings' => $followings]);
     }
 
     public function store(GroupRequest $request, Group $group)
