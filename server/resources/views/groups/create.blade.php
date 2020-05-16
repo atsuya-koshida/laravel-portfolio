@@ -19,7 +19,7 @@
                 <input name="name" type="text" placeholder="グループ名を入力して下さい">
               </div>
               <div class="check-box">
-                <h1>ユーザーを追加</h1>
+                <h1>フォロー中のユーザーを追加</h1>
                 @foreach ($followings as $user)
                 @if ($user->id !== Auth::user()->id)
                 <input name="users[]" value="{{ $user->id }}" type="checkbox"/>

@@ -76,4 +76,10 @@ class GroupController extends Controller
             'group' => $group,
             ]);
     }
+
+    public function destroy(Group $group)
+    {
+        $group->delete();
+        return redirect()->route('group.index');
+    }
 }
