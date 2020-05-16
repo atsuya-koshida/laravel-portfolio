@@ -20,6 +20,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::resource('/post', 'PostController')->middleware('auth');
 Route::resource('/user', 'UserController');
 Route::resource('/group', 'GroupController')->middleware('auth');
+Route::resource('/message', 'MessageController', ['only' => ['store']]);
 
 Route::prefix('user')->name('user.')->group(function() {
   Route::middleware('auth')->group(function() {
