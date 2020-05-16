@@ -15,11 +15,11 @@ class Message extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo('App\User')->withTimestamps();
+        return $this->belongsTo('App\User');
     }
 
     public function group(): BelongsTo
     {
-        return $this->belongsTo('App\Group')->withTimestamps();
+        return $this->belongsTo('App\Group');
     }
 }

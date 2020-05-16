@@ -24,48 +24,15 @@
         </div>
       </div>
       <div class="chat-messages">
+        @foreach ($messages as $message)
         <div class="message">
           <div class="message__info">
-            <p class="user-name">ユーザー名</p>
-            <p class="send-time">2020/5/5 8:10</p>
+            <p class="user-name">{{ $message->user->name }}</p>
+            <p class="send-time">{{ $message->created_at->format('Y/m/d H:i') }}</p>
           </div>
-          <div class="message__desc">ここに投稿内容が入ります</div>
+          <div class="message__desc">{{ $message->text }}</div>
         </div>
-        <div class="message">
-          <div class="message__info">
-            <p class="user-name">ユーザー名</p>
-            <p class="send-time">2020/5/5 8:10</p>
-          </div>
-          <div class="message__desc">ここに投稿内容が入ります</div>
-        </div>
-        <div class="message">
-          <div class="message__info">
-            <p class="user-name">ユーザー名</p>
-            <p class="send-time">2020/5/5 8:10</p>
-          </div>
-          <div class="message__desc">ここに投稿内容が入ります</div>
-        </div>
-        <div class="message">
-          <div class="message__info">
-            <p class="user-name">ユーザー名</p>
-            <p class="send-time">2020/5/5 8:10</p>
-          </div>
-          <div class="message__desc">ここに投稿内容が入ります</div>
-        </div>
-        <div class="message">
-          <div class="message__info">
-            <p class="user-name">ユーザー名</p>
-            <p class="send-time">2020/5/5 8:10</p>
-          </div>
-          <div class="message__desc">ここに投稿内容が入ります</div>
-        </div>
-        <div class="message">
-          <div class="message__info">
-            <p class="user-name">ユーザー名</p>
-            <p class="send-time">2020/5/5 8:10</p>
-          </div>
-          <div class="message__desc">ここに投稿内容が入ります</div>
-        </div>
+        @endforeach
       </div>
       <div class="chat-form-box">
 
