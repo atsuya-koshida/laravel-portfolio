@@ -18,8 +18,10 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/post', 'PostController')->middleware('auth');
+
 Route::resource('/user', 'UserController');
 Route::resource('/group', 'GroupController')->middleware('auth');
+Route::resource('/message', 'MessageController', ['only' => ['store']]);
 
 Route::prefix('user')->name('user.')->group(function() {
   Route::middleware('auth')->group(function() {
@@ -29,8 +31,3 @@ Route::prefix('user')->name('user.')->group(function() {
   Route::get('/followings/{user}', 'UserController@followings')->name('followings');
   Route::get('/followers/{user}', 'UserController@followers')->name('followers');
 });
-
-
-// Route::view('group', 'groups.index')->name('group.index');
-// Route::view('group/show', 'groups.show')->name('group.show');
-// Route::view('group/create', 'groups.create')->name('group.create');
