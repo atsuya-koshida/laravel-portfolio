@@ -42,22 +42,38 @@ class GroupController extends Controller
         $group->fill($request->all());
         $users = $request->users;
         $group->save();
+        $group->users()->attach(Auth::user());
         foreach ($users as $key => $user) {
             $group->users()->attach($user);
         }
-        $group->users()->attach(Auth::user());
         return redirect()->route('group.index');
     }
 
     public function edit(Group $group)
     {
-        return view('groups.edit', ['group' => $group]);
+        $user = Auth::user();
+        if($user instanceof User){
+            $group_users = $group->users;   //グループに所属するユーザー
+            $followings = $user->followings;    //ユーザーがフォローしているユーザー達
+            $diff_users = $followings->diff($group_users);  //フォロー中のユーザーからグループに所属するユーザーを抜いたコレクション
+            return view('groups.edit', [
+                'group' => $group,
+                'group_users' => $group_users,
+                'diff_users' => $diff_users,
+            ]);
+        }
     }
 
     public function update(GroupRequest $request, Group $group)
     {
+        $user = Auth::user();
         $group->fill($request->all());
         $group->save();
-        return redirect()->route('group.show', ['group' => $group]);
+        $group->users()->sync($request->users);
+        $group->users()->attach($user);
+        
+        return redirect()->route('group.show', [
+            'group' => $group,
+            ]);
     }
 }
