@@ -23,18 +23,24 @@ class GroupController extends Controller
     public function show(Group $group)
     {
         $user = Auth::user();
-        $groups = $user->groups->sortByDesc('created_at');
-        return view('groups.show', [
-            'group' => $group,
-            'groups' => $groups,
-        ]);
+        if($user instanceof User) {
+            $groups = $user->groups->sortByDesc('created_at');
+            return view('groups.show', [
+                'group' => $group,
+                'groups' => $groups,
+            ]);
+        }
     }
 
     public function create()
     {
         $user = Auth::user();
-        $followings = $user->followings;
-        return view('groups.create', ['followings' => $followings]);
+        if($user instanceof User) {
+            $followings = $user->followings;
+            return view('groups.create', [
+                'followings' => $followings
+            ]);
+        }
     }
 
     public function store(GroupRequest $request, Group $group)
@@ -67,14 +73,16 @@ class GroupController extends Controller
     public function update(GroupRequest $request, Group $group)
     {
         $user = Auth::user();
-        $group->fill($request->all());
-        $group->save();
-        $group->users()->sync($request->users);
-        $group->users()->attach($user);
-        
-        return redirect()->route('group.show', [
-            'group' => $group,
+        if($user instanceof User) {
+            $group->fill($request->all());
+            $group->save();
+            $group->users()->sync($request->users);
+            $group->users()->attach($user);
+            
+            return redirect()->route('group.show', [
+                'group' => $group,
             ]);
+        }
     }
 
     public function destroy(Group $group)
