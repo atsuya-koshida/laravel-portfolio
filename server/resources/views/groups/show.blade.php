@@ -68,9 +68,12 @@
         </div>
       </div>
       <div class="chat-form-box">
-        <form action="" method="post" class="chat-form">
+
+        <form action="{{ route('message.store', ['group' => $group]) }}" method="POST" class="chat-form">
           @csrf
-          <input type="text" name="message" class="chat-message" placeholder="メッセージを入力して下さい">
+          <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+          <input type="hidden" name="group_id" value="{{ $group->id }}">
+          <input type="text" name="text" class="chat-message" placeholder="メッセージを入力して下さい">
           <input type="submit" value="送信する" class="chat-submit">
         </form>
       </div>

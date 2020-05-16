@@ -19,8 +19,8 @@ class Group extends Model
         return $this->belongsToMany('App\User');
     }
 
-    public function messages(): BelongsToMany
+    public function messages(): HasMany
     {
-        return $this->belongsToMany('App\Message');
+        return $this->hasMany('App\Message');
     }
 }

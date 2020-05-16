@@ -30,9 +30,9 @@
               </div>
               <div class="check-box">
                 <h1>ユーザーを追加</h1>
-                @foreach ($diff_users as $d_user)
-                <input name="users[]" value="{{ $d_user->id }}" type="checkbox"/>
-                <label>{{ $d_user->name }}</label>
+                @foreach ($diff_users as $diff_user)
+                <input name="users[]" value="{{ $diff_user->id }}" type="checkbox"/>
+                <label>{{ $diff_user->name }}</label>
                 @endforeach
               </div>
               <div class="submit-box">

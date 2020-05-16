@@ -3,11 +3,23 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Message extends Model
 {
-    public function store()
+    protected $fillable = [
+        'text',
+        'user_id',
+        'group_id',
+    ];
+
+    public function user(): BelongsTo
     {
-        
+        return $this->belongsTo('App\User')->withTimestamps();
+    }
+
+    public function group(): BelongsTo
+    {
+        return $this->belongsTo('App\Group')->withTimestamps();
     }
 }
