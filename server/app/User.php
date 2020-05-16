@@ -33,6 +33,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Group')->withTimestamps();
     }
 
+    public function messages(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Message');
+    }
+
     public function followings(): BelongsToMany
     {
         return $this->belongsToMany('App\User', 'follows', 'follow_id', 'followed_id')->withTimestamps();
