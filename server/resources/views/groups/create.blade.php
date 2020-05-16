@@ -12,16 +12,26 @@
             <div class="group-section__title">
               <p>チャットグループを作成</p>
             </div>
-            <form action="" method="POST">
+            <form action="{{ route('group.store') }}" method="POST">
               @csrf
               <div class="text-box">
                 <label class="text-label">グループ名</label>
-                <input type="text" placeholder="グループ名を入力して下さい">
+                <input name="name" type="text" placeholder="グループ名を入力して下さい">
               </div>
-              <div class="search-box">
+              <div class="check-box">
+                <h1>フォロー中のユーザーを追加</h1>
+                @foreach ($followings as $user)
+                @if ($user->id !== Auth::user()->id)
+                <input name="users[]" value="{{ $user->id }}" type="checkbox"/>
+                <label>{{ $user->name }}</label>
+                @endif
+                @endforeach
+              </div>
+              {{-- <div class="search-box">
+                <label class="text-label">ユーザーを追加</label>
                 <input type="text" placeholder="検索">
                 <i class="fas fa-search"></i>
-              </div>
+              </div> --}}
               <div class="submit-box">
                 <input type="submit" value="作成" class="submit-btn">
               </div>

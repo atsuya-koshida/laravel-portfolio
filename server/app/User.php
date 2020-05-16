@@ -28,6 +28,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+    public function groups(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Group')->withTimestamps();
+    }
+
     public function followings(): BelongsToMany
     {
         return $this->belongsToMany('App\User', 'follows', 'follow_id', 'followed_id')->withTimestamps();

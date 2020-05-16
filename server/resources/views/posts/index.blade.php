@@ -14,6 +14,7 @@
           <p>絞り込み</p>
           <form method="GET" action="">
             <div class="search-box">
+              <label class="text-label">フリーワードで検索</label>
               <input type="text" placeholder="検索">
               <i class="fas fa-search"></i>
             </div>
