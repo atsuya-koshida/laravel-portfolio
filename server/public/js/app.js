@@ -39233,7 +39233,7 @@ var render = function() {
       _c("vue-tags-input", {
         attrs: {
           tags: _vm.tags,
-          placeholder: "タグを5個まで入力できます",
+          placeholder: "タグを3個まで入力できます",
           "autocomplete-items": _vm.filteredItems
         },
         on: {
