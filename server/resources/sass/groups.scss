@@ -3,6 +3,7 @@
   width: 100vw;
   height: (100vh - #{$headerHeight});
   display: flex;
+  padding-top: $headerHeight;
 
   .chat-main {
     width: calc(100vw - 300px);

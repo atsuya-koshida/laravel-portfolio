@@ -1,12 +1,13 @@
 .main-wrapper {
   width: 100vw;
   padding-top: $headerHeight;
-
+  
   &__inner {
     width: 90%;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
+    padding-top: $headerHeight;
   }
 }
 
