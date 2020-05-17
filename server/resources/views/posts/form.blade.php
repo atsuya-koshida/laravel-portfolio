@@ -30,5 +30,6 @@
 </div>
 <post-tags-input
   :initial-tags='@json($tag_names ?? [])'
+  :autocomplete-items='@json($all_tag_names ?? [])'
 >
 </post-tags-input>
