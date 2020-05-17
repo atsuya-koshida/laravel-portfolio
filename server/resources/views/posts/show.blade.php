@@ -17,7 +17,6 @@
               <form action="{{ route('post.edit', ['post' => $post]) }}">
                 <button class="edit-btn">編集</button>
               </form>
-              {{-- <a href="{{ route('post.edit', ['post' => $post]) }}" class="edit-btn">編集</a> --}}
               <form method="POST" action="{{ route('post.destroy', ['post' => $post]) }}">
                 @csrf
                 @method('DELETE')
