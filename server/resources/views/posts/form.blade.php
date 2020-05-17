@@ -18,11 +18,11 @@
 </div>
 <div class="text-box">
   <label class="text-label">活動場所</label>
-  <input name="activity_place" type="text" placeholder="活動場所を入力して下さい" required value="{{ $post->activity_place ?? old('activity_place') }}">
+  <textarea name="activity_place" placeholder="活動場所を入力して下さい" required value="{{ $post->activity_place ?? old('activity_place') }}"></textarea>
 </div>
 <div class="text-box">
   <label class="text-label">活動時間</label>
-  <input name="activity_time" type="text" placeholder="活動時間を入力して下さい" required value="{{ $post->activity_time ?? old('activity_time') }}">
+  <textarea name="activity_time" type="text" placeholder="活動時間を入力して下さい" required value="{{ $post->activity_time ?? old('activity_time') }}"></textarea>
 </div>
 <div class="text-box">
   <p>詳しい説明</p>

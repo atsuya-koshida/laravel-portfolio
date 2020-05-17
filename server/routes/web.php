@@ -22,6 +22,7 @@ Route::resource('/post', 'PostController')->middleware('auth');
 Route::resource('/user', 'UserController');
 Route::resource('/group', 'GroupController')->middleware('auth');
 Route::resource('/message', 'MessageController', ['only' => ['store']]);
+Route::resource('/comment', 'CommentController', ['only' => ['store']]);
 
 Route::prefix('user')->name('user.')->group(function() {
   Route::middleware('auth')->group(function() {

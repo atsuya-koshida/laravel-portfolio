@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
@@ -21,7 +22,11 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        return view('posts.show', ['post' => $post]);
+        $comments = $post->comments;
+        return view('posts.show', [
+            'post' => $post,
+            'comments' => $comments,
+        ]);
     }
 
     public function create()

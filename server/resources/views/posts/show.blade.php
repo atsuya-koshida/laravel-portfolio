@@ -12,21 +12,22 @@
             <div class="post-section__title">
               <p style="border: none;">募集詳細</p>
             </div>
+            @if (Auth::user() === $post->user)
             <div class="post-section__btn">
               <form action="{{ route('post.edit', ['post' => $post]) }}">
                 <button class="edit-btn">編集</button>
               </form>
-              {{-- <a href="{{ route('post.edit', ['post' => $post]) }}" class="edit-btn">編集</a> --}}
               <form method="POST" action="{{ route('post.destroy', ['post' => $post]) }}">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="delete-btn" onclick='return confirm("本当に削除しますか？");'>削除</button>
               </form>
             </div>
+            @endif
             <table>
               <tr>
                 <th>投稿者</th>
-                <td><a href="#">{{ $post->user->name }}</a></td>
+                <td><a href="{{ route('user.show', ['user' => $post->user]) }}">{{ $post->user->name }}</a></td>
               </tr>
               <tr>
                 <th>タイトル</th>
@@ -42,11 +43,11 @@
               </tr>
               <tr>
                 <th>活動場所</th>
-                <td>{{ $post->activity_place }}</td>
+                <td>{!! nl2br($post->activity_place) !!}</td>
               </tr>
               <tr>
                 <th>活動時間</th>
-                <td>{{ $post->activity_time }}</td>
+                <td>{!! nl2br($post->activity_time) !!}</td>
               </tr>
               <tr>
                 <th>詳しい説明</th>
@@ -54,14 +55,22 @@
               </tr>
             </table>
             <div class="comment-box">
-              <form action="" method="POST" class="comment-form">
-                <textarea name="text"cols="30" rows="2" placeholder="コメントする"></textarea>
+              <form action="{{ route('comment.store', ['post' => $post])}}" method="POST" class="comment-form">
+                @csrf
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                <textarea name="text" cols="30" rows="2" placeholder="コメントする"></textarea>
                 <input type="submit" value="コメントする">
               </form>
               <div class="comments">
                 <p class="comments__title">＜コメント一覧＞</p>
-                <p class="comment"><a href="#">ユーザー名</a>:
-                  本文
+                @foreach ($comments as $comment)
+                <div class="comment">
+                  <p class="comment__user"><a href="{{ route('user.show', ['user' => $comment->user]) }}">{{ $comment->user->name }}</a></p>
+                  <p class="comment__date">{{ $comment->created_at->format('Y/m/d H:i') }}</p>
+                </div>
+                <p class="comment__text">{!! nl2br(e($comment->text)) !!}</p>
+                @endforeach
                 </p>
               </div>
             </div>

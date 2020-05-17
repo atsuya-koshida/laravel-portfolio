@@ -26,7 +26,6 @@ class GroupController extends Controller
         if($user instanceof User) {
             $groups = $user->groups->sortByDesc('created_at');
             $messages = $group->messages;
-            Log::debug($messages);
             return view('groups.show', [
                 'group' => $group,
                 'groups' => $groups,
