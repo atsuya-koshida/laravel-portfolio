@@ -29,6 +29,7 @@ class PostRequest extends FormRequest
             'activity_place' => 'required|max:100',
             'activity_time' => 'required|max:100',
             'description' => 'required|max:500',
+            'tags' => 'json|regex:/^(?!.*\s).+$/u|regex:/^(?!.*\/).*$/u',
         ];
     }
 
@@ -41,5 +42,14 @@ class PostRequest extends FormRequest
             'activity_time' => '活動時間',
             'description' => '詳しい説明',
         ];
+    }
+
+    public function passedValidation()
+    {
+        $this->tags = collect(json_decode($this->tags))
+            ->slice(0, 5)
+            ->map(function ($requestTag) {
+                return $requestTag->text;
+            });
     }
 }

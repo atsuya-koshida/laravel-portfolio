@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -39,6 +40,12 @@ class PostController extends Controller
         $post->fill($request->all());
         $post->user_id = $request->user()->id;
         $post->save();
+
+        $request->tags->each(function ($tag_name) use ($post) {
+            $tag = Tag::firstOrCreate(['name' => $tag_name]);
+            $post->tags()->attach($tag);
+        });
+
         return redirect()->route('home');
     }
 
