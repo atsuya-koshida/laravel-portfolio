@@ -6,8 +6,9 @@
       <li class="date">{{ $post->created_at->format('Y/m/d H:i') }}</li>
       <li class="tags">
         <ul>
-          <li><a href="#">タグ</a></li>
-          <li><a href="#">タグ</a></li>
+          @foreach ($post->tags as $tag)
+          <li><a href="#">{{ $tag->name }}</a></li>
+          @endforeach
         </ul>
       </li>
     </ul>
