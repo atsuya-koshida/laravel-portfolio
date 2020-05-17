@@ -12,7 +12,6 @@ class CommentController extends Controller
     {
         $comment->fill($request->all());
         $post = $comment->post_id;
-        Log::debug($post);
         $comment->save();
         return redirect()->route('post.show', ['post' => $post]);
     }
