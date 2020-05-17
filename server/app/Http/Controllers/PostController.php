@@ -51,13 +51,26 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return view('posts.edit', ['post' => $post]);
+        $tag_names = $post->tags->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+        
+        return view('posts.edit', [
+            'post' => $post,
+            'tag_names' => $tag_names,
+        ]);
     }
 
     public function update(PostRequest $request, Post $post)
     {
         $post->fill($request->all())->save();
-        return redirect()->route('home');
+
+        $post->tags()->detach();
+        $request->tags->each(function ($tag_name) use ($post) {
+            $tag = Tag::firstOrCreate(['name' => $tag_name]);
+            $post->tags()->attach($tag);
+        });
+        return redirect()->route('post.show', ['post' => $post]);
     }
 
     public function destroy(Post $post)

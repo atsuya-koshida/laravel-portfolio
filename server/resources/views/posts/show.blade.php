@@ -12,7 +12,7 @@
             <div class="post-section__title">
               <p style="border: none;">募集詳細</p>
             </div>
-            @if (Auth::user() === $post->user)
+            @if (Auth::user()->id === $post->user_id)
             <div class="post-section__btn">
               <form action="{{ route('post.edit', ['post' => $post]) }}">
                 <button class="edit-btn">編集</button>

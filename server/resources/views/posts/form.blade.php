@@ -18,16 +18,17 @@
 </div>
 <div class="text-box">
   <label class="text-label">活動場所</label>
-  <textarea name="activity_place" placeholder="活動場所を入力して下さい" required value="{{ $post->activity_place ?? old('activity_place') }}"></textarea>
+  <textarea name="activity_place" placeholder="活動場所を入力して下さい">{{ $post->activity_place ?? old('activity_place') }}</textarea>
 </div>
 <div class="text-box">
   <label class="text-label">活動時間</label>
-  <textarea name="activity_time" type="text" placeholder="活動時間を入力して下さい" required value="{{ $post->activity_time ?? old('activity_time') }}"></textarea>
+  <textarea name="activity_time" type="text" placeholder="活動時間を入力して下さい">{{ $post->activity_time ?? old('activity_time') }}</textarea>
 </div>
 <div class="text-box">
   <p>詳しい説明</p>
   <textarea name="description" cols="20" rows="10" placeholder="詳しい説明を入力してください">{{ $post->description ?? old('description') }}</textarea>
 </div>
 <post-tags-input
-  >
+  :initial-tags='@json($tag_names ?? [])'
+>
 </post-tags-input>
