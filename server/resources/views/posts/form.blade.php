@@ -28,3 +28,6 @@
   <p>詳しい説明</p>
   <textarea name="description" cols="20" rows="10" placeholder="詳しい説明を入力してください">{{ $post->description ?? old('description') }}</textarea>
 </div>
+<post-tags-input
+  >
+</post-tags-input>
