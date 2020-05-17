@@ -12,6 +12,7 @@
             <div class="post-section__title">
               <p style="border: none;">募集詳細</p>
             </div>
+            @if (Auth::user() === $post->user)
             <div class="post-section__btn">
               <form action="{{ route('post.edit', ['post' => $post]) }}">
                 <button class="edit-btn">編集</button>
@@ -23,10 +24,11 @@
                 <button type="submit" class="delete-btn" onclick='return confirm("本当に削除しますか？");'>削除</button>
               </form>
             </div>
+            @endif
             <table>
               <tr>
                 <th>投稿者</th>
-                <td><a href="#">{{ $post->user->name }}</a></td>
+                <td><a href="{{ route('user.show', ['user' => $post->user]) }}">{{ $post->user->name }}</a></td>
               </tr>
               <tr>
                 <th>タイトル</th>
@@ -42,11 +44,11 @@
               </tr>
               <tr>
                 <th>活動場所</th>
-                <td>{{ $post->activity_place }}</td>
+                <td>{!! nl2br($post->activity_place) !!}</td>
               </tr>
               <tr>
                 <th>活動時間</th>
-                <td>{{ $post->activity_time }}</td>
+                <td>{!! nl2br($post->activity_time) !!}</td>
               </tr>
               <tr>
                 <th>詳しい説明</th>
@@ -64,8 +66,11 @@
               <div class="comments">
                 <p class="comments__title">＜コメント一覧＞</p>
                 @foreach ($comments as $comment)
-                <p class="comment"><a href="{{ route('user.show', ['user' => $comment->user]) }}">{{ $comment->user->name }}</a>:
-                  {{ $comment->text }}
+                <div class="comment">
+                  <p class="comment__user"><a href="{{ route('user.show', ['user' => $comment->user]) }}">{{ $comment->user->name }}</a></p>
+                  <p class="comment__date">{{ $comment->created_at->format('Y/m/d H:i') }}</p>
+                </div>
+                <p class="comment__text">{!! nl2br(e($comment->text)) !!}</p>
                 @endforeach
                 </p>
               </div>

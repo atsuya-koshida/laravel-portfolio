@@ -109,7 +109,19 @@
         margin-top: 15px;
 
         .comment {
+          display: flex;
           margin-top: 15px;
+
+          &__user {
+            margin-bottom: 10px;
+          }
+
+          &__date {
+            line-height: 17px;
+            font-size: 12px;
+            color: #aaaaaa;
+            margin-left: 10px;
+          }
         }
       }
     }
