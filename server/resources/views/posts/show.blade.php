@@ -54,14 +54,19 @@
               </tr>
             </table>
             <div class="comment-box">
-              <form action="" method="POST" class="comment-form">
-                <textarea name="text"cols="30" rows="2" placeholder="コメントする"></textarea>
+              <form action="{{ route('comment.store', ['post' => $post])}}" method="POST" class="comment-form">
+                @csrf
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                <input type="hidden" name="post_id" value="{{ $post->id }}">
+                <textarea name="text" cols="30" rows="2" placeholder="コメントする"></textarea>
                 <input type="submit" value="コメントする">
               </form>
               <div class="comments">
                 <p class="comments__title">＜コメント一覧＞</p>
-                <p class="comment"><a href="#">ユーザー名</a>:
-                  本文
+                @foreach ($comments as $comment)
+                <p class="comment"><a href="{{ route('user.show', ['user' => $comment->user]) }}">{{ $comment->user->name }}</a>:
+                  {{ $comment->text }}
+                @endforeach
                 </p>
               </div>
             </div>

@@ -28,6 +28,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
+    public function comments(): HasMany
+    {
+        return $this->hasMany('App\Comment');
+    }
+
     public function groups(): BelongsToMany
     {
         return $this->belongsToMany('App\Group')->withTimestamps();

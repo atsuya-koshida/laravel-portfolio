@@ -9,8 +9,14 @@ class Comment extends Model
 {
     protected $fillable = [
         'text',
+        'user_id',
         'post_id',
     ];
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo('App\User');
+    }
 
     public function post(): BelongsTo
     {
