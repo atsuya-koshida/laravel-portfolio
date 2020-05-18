@@ -14,11 +14,11 @@ class UserController extends Controller
     {
         $posts = $user->posts->sortByDesc('created_at');
         $positions = $user->positions;
-        $now = date("Ymd");
-        $birthdate = $user->birthday;
-        $birthday = str_replace("-", "", $birthdate);
-        $age = floor(($now-$birthday)/10000);
-        Log::debug($age);
+        $now = date('Y-m-d');
+        $birthday = $user->birthday;
+        $c = (int)date('Ymd', strtotime($now));
+        $b = (int)date('Ymd', strtotime($birthday));
+        $age = (int)(($c - $b) / 10000);
         return view('users.show', [
             'user' => $user,
             'posts' => $posts,
@@ -31,14 +31,15 @@ class UserController extends Controller
     {
         $positions = Position::all();
         $checked_positions = $user->positions;
-        Log::debug($checked_positions);
         $unchecked_positions = $positions->diff($checked_positions);
+        $merged_positions = $unchecked_positions->merge($checked_positions);
 
+        $sorted_positions = $merged_positions->sortBy('id');
+        Log::debug($sorted_positions);
         return view('users.edit', [
             'user' => $user,
             'positions' => $positions,
-            'checked_positions' => $checked_positions,
-            'unchecked_positions' => $unchecked_positions
+            'sorted_positions' => $sorted_positions,
         ]);
     }
 

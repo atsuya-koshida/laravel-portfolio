@@ -40,9 +40,11 @@
               </span>
             @endforeach
             </p>
+            @if ($age !== null)
             <p class="user-age">
               年齢：{{ $age }}
             </p>
+            @endif
             <p class="user-follow">フォロー：<a href="{{ route('user.followings', ['user' => $user]) }}">{{ $user->count_followings }}</a></p>
             <p class="user-follower">フォロワー：<a href="{{ route('user.followers', ['user' => $user]) }}">{{ $user->count_followers }}</a></p>
           </div>

@@ -42,13 +42,15 @@
               </div>
               <div class="check-box">
                 <p>ポジション</p>
-                @foreach ($checked_positions as $checked_position)
-                <input name="positions[]" value="{{ $checked_position->id }}" type="checkbox" checked/>
-                <label>{{ $checked_position->name }}</label>
-                @endforeach
-                @foreach ($unchecked_positions as $unchecked_position)
-                <input name="positions[]" value="{{ $unchecked_position->id }}" type="checkbox"/>
-                <label>{{ $unchecked_position->name }}</label>
+                @foreach ($sorted_positions as $position)
+                {{ Log::debug($position) }}
+                @if (empty($position->pivot))
+                <input name="positions[]" value="{{ $position->id }}" type="checkbox"/>
+                <label>{{ $position->name }}</label>
+                @else
+                <input name="positions[]" value="{{ $position->id }}" type="checkbox" checked/>
+                <label>{{ $position->name }}</label>
+                @endif
                 @endforeach
               </div>
               <div class="submit-box">
