@@ -10,15 +10,16 @@
         <div class="main-container">
           <div class="user-section">
             <p class="user-section__title">プロフィール編集</p>
-            <form action="" method="POST">
+            <form action="{{ route('user.update', ['user' => $user]) }}" method="POST">
+              @method('PATCH')
               @csrf
               <div class="text-box">
                 <label>名前</label>
-                <input type="text" placeholder="名前を入力して下さい">
+                <input type="text" placeholder="名前を入力して下さい" required value="{{ $user->name ?? old('name') }}">
               </div>
               <div class="text-box">
                 <label>メールアドレス</label>
-                <input type="email" placeholder="メールアドレスを入力して下さい">
+                <input type="email" placeholder="メールアドレスを入力して下さい" required value="{{ $user->email ?? old('email') }}">
               </div>
               <div class="file-box">
                 <p>画像</p>
@@ -33,15 +34,16 @@
                   <option value="4">大阪</option>
                 </select>
               </div>
-              <div class="select-box selected">
-                <select>
-                  <option value="" hidden>ポジションを選んでください</option>
-                  <option value="1">PG</option>
-                  <option value="2">SG</option>
-                  <option value="3">SF</option>
-                  <option value="4">PF</option>
-                  <option value="5">C</option>
-                </select>
+              <div class="check-box">
+                <p>ポジション</p>
+                @foreach ($checked_positions as $checked_position)
+                <input name="positions[]" value="{{ $checked_position->id }}" type="checkbox" checked/>
+                <label>{{ $checked_position->name }}</label>
+                @endforeach
+                @foreach ($unchecked_positions as $unchecked_position)
+                <input name="positions[]" value="{{ $unchecked_position->id }}" type="checkbox"/>
+                <label>{{ $unchecked_position->name }}</label>
+                @endforeach
               </div>
               <div class="submit-box">
                 <input type="submit" value="登録する" class="submit-btn">

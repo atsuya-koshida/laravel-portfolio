@@ -12,11 +12,11 @@ class PositionsSeeder extends Seeder
     public function run()
     {
         DB::table('positions')->insert([
-            ['name' => 'ポイントガード'],
-            ['name' => 'シューティングガード'],
-            ['name' => 'スモールフォワード'],
-            ['name' => 'パワーフォワード'],
-            ['name' => 'センター'],
+            ['name' => 'PG'],
+            ['name' => 'SG'],
+            ['name' => 'SF'],
+            ['name' => 'PF'],
+            ['name' => 'C'],
         ]);
     }
 }
