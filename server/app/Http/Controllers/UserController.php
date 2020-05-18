@@ -14,10 +14,16 @@ class UserController extends Controller
     {
         $posts = $user->posts->sortByDesc('created_at');
         $positions = $user->positions;
+        $now = date("Ymd");
+        $birthdate = $user->birthday;
+        $birthday = str_replace("-", "", $birthdate);
+        $age = floor(($now-$birthday)/10000);
+        Log::debug($age);
         return view('users.show', [
             'user' => $user,
             'posts' => $posts,
             'positions' => $positions,
+            'age' => $age,
         ]);
     }
 

@@ -21,6 +21,12 @@
                 <label>メールアドレス</label>
                 <input type="email" placeholder="メールアドレスを入力して下さい" required value="{{ $user->email ?? old('email') }}">
               </div>
+              <div class="text-box">
+                <label>生年月日</label>
+                <div class="date-box">
+                  <input type="date" name="birthday" value="{{ $user->birthday ?? old('birthday') }}">
+                </div>
+              </div>
               <div class="file-box">
                 <p>画像</p>
                 <input type="file" name="image">
@@ -46,7 +52,7 @@
                 @endforeach
               </div>
               <div class="submit-box">
-                <input type="submit" value="登録する" class="submit-btn">
+                <input type="submit" value="更新する" class="submit-btn">
               </div>
             </form>
           </div>

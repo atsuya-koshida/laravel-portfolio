@@ -31,7 +31,7 @@
           <div class="user-section__bottom">
             <p class="user-position">
               ポジション：
-            @foreach ($positions as $position)
+              @foreach ($positions as $position)
               <span>
                 {{ $position->name }}
                 @if (!$loop->last)
@@ -39,6 +39,9 @@
                 @endif
               </span>
             @endforeach
+            </p>
+            <p class="user-age">
+              年齢：{{ $age }}
             </p>
             <p class="user-follow">フォロー：<a href="{{ route('user.followings', ['user' => $user]) }}">{{ $user->count_followings }}</a></p>
             <p class="user-follower">フォロワー：<a href="{{ route('user.followers', ['user' => $user]) }}">{{ $user->count_followers }}</a></p>
