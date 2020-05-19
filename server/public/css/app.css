@@ -1221,8 +1221,21 @@ textarea::placeholder {
 }
 
 .chat-wrapper .chat-side .groups .group {
+  display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid #b5b5b5;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+}
+
+.chat-wrapper .chat-side .groups .group__image {
+  padding-bottom: 10px;
+}
+
+.chat-wrapper .chat-side .groups .group__image img {
+  width: 50px;
+  height: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .chat-wrapper .chat-side .groups .group a {
@@ -1232,12 +1245,6 @@ textarea::placeholder {
 .chat-wrapper .chat-side .groups .group__name {
   font-size: 15px;
   margin-bottom: 5px;
-}
-
-.chat-wrapper .chat-side .groups .group__latest-message {
-  font-size: 11px;
-  color: #aaaaaa;
-  margin-bottom: 10px;
 }
 
 .group-section {
