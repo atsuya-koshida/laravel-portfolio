@@ -10,7 +10,7 @@
         <div class="main-container">
           <div class="user-section">
             <p class="user-section__title">プロフィール編集</p>
-            <form action="{{ route('user.update', ['user' => $user]) }}" method="POST">
+            <form action="{{ route('user.update', ['user' => $user]) }}" method="POST" enctype="multipart/form-data">
               @method('PATCH')
               @csrf
               <div class="text-box">
