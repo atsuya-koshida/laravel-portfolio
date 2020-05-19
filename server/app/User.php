@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -28,6 +29,11 @@ class User extends Authenticatable
     public function posts(): HasMany
     {
         return $this->hasMany('App\Post');
+    }
+
+    public function prefecture(): BelongsTo
+    {
+        return $this->belongsTo('App\Prefecture');
     }
 
     public function positions(): BelongsToMany
