@@ -43,7 +43,6 @@
               <div class="check-box">
                 <p>ポジション</p>
                 @foreach ($sorted_positions as $position)
-                {{ Log::debug($position) }}
                 @if (empty($position->pivot))
                 <input name="positions[]" value="{{ $position->id }}" type="checkbox"/>
                 <label>{{ $position->name }}</label>

@@ -38,11 +38,15 @@
                 /
                 @endif
               </span>
-            @endforeach
+              @endforeach
             </p>
-            @if ($age !== null)
+            @if ( isset($age) )
             <p class="user-age">
-              年齢：{{ $age }}
+              年齢：{{ $age }}歳
+            </p>
+            @else
+            <p class="user-age">
+              年齢：設定されていません
             </p>
             @endif
             <p class="user-follow">フォロー：<a href="{{ route('user.followings', ['user' => $user]) }}">{{ $user->count_followings }}</a></p>

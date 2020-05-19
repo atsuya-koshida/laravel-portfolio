@@ -14,17 +14,25 @@ class UserController extends Controller
     {
         $posts = $user->posts->sortByDesc('created_at');
         $positions = $user->positions;
-        $now = date('Y-m-d');
-        $birthday = $user->birthday;
-        $c = (int)date('Ymd', strtotime($now));
-        $b = (int)date('Ymd', strtotime($birthday));
-        $age = (int)(($c - $b) / 10000);
-        return view('users.show', [
-            'user' => $user,
-            'posts' => $posts,
-            'positions' => $positions,
-            'age' => $age,
-        ]);
+        $now = date('Ymd');
+        $birthday  = $user->birthday;
+        $replace_birthday = (int)date('Ymd', strtotime($birthday));
+        if($birthday !== null)
+        {
+            $age = floor(($now - $replace_birthday)/10000);
+            return view('users.show', [
+                'user' => $user,
+                'posts' => $posts,
+                'positions' => $positions,
+                'age' => $age,
+            ]);
+        } else {
+            return view('users.show', [
+                'user' => $user,
+                'posts' => $posts,
+                'positions' => $positions,
+            ]);
+        }
     }
 
     public function edit(User $user)
