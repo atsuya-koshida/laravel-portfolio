@@ -10,15 +10,22 @@
         <div class="main-container">
           <div class="user-section">
             <p class="user-section__title">プロフィール編集</p>
-            <form action="" method="POST">
+            <form action="{{ route('user.update', ['user' => $user]) }}" method="POST" enctype="multipart/form-data">
+              @method('PATCH')
               @csrf
               <div class="text-box">
                 <label>名前</label>
-                <input type="text" placeholder="名前を入力して下さい">
+                <input type="text" placeholder="名前を入力して下さい" required value="{{ $user->name ?? old('name') }}">
               </div>
               <div class="text-box">
                 <label>メールアドレス</label>
-                <input type="email" placeholder="メールアドレスを入力して下さい">
+                <input type="email" placeholder="メールアドレスを入力して下さい" required value="{{ $user->email ?? old('email') }}">
+              </div>
+              <div class="text-box">
+                <label>生年月日</label>
+                <div class="date-box">
+                  <input type="date" name="birthday" value="{{ $user->birthday ?? old('birthday') }}">
+                </div>
               </div>
               <div class="file-box">
                 <p>画像</p>
@@ -33,18 +40,20 @@
                   <option value="4">大阪</option>
                 </select>
               </div>
-              <div class="select-box selected">
-                <select>
-                  <option value="" hidden>ポジションを選んでください</option>
-                  <option value="1">PG</option>
-                  <option value="2">SG</option>
-                  <option value="3">SF</option>
-                  <option value="4">PF</option>
-                  <option value="5">C</option>
-                </select>
+              <div class="check-box">
+                <p>ポジション</p>
+                @foreach ($sorted_positions as $position)
+                @if (empty($position->pivot))
+                <input name="positions[]" value="{{ $position->id }}" type="checkbox"/>
+                <label>{{ $position->name }}</label>
+                @else
+                <input name="positions[]" value="{{ $position->id }}" type="checkbox" checked/>
+                <label>{{ $position->name }}</label>
+                @endif
+                @endforeach
               </div>
               <div class="submit-box">
-                <input type="submit" value="登録する" class="submit-btn">
+                <input type="submit" value="更新する" class="submit-btn">
               </div>
             </form>
           </div>

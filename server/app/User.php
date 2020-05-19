@@ -21,11 +21,18 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'birthday',
+        'image',
     ];
 
     public function posts(): HasMany
     {
         return $this->hasMany('App\Post');
+    }
+
+    public function positions(): BelongsToMany
+    {
+        return $this->belongsToMany('App\Position');
     }
 
     public function comments(): HasMany
