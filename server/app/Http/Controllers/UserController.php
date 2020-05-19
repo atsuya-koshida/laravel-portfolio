@@ -6,6 +6,9 @@ use App\User;
 use App\Position;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+// use Intervention\Image\Facades\Image;
+// use App\Services\CheckExtensionServices;
+// use App\Services\FileUploadServices;
 
 class UserController extends Controller
 {
@@ -43,7 +46,6 @@ class UserController extends Controller
         $merged_positions = $unchecked_positions->merge($checked_positions);
 
         $sorted_positions = $merged_positions->sortBy('id');
-        Log::debug($sorted_positions);
         return view('users.edit', [
             'user' => $user,
             'positions' => $positions,
@@ -53,8 +55,13 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-        $user->fill($request->all());
+        $user->fill($request->except(['image']));
         $user->save();
+        if(!is_null($request['image'])){
+            $file_path = $request->file('image')->store('public/images');
+            $user->image = basename($file_path);
+            $user->save();
+        }
         $user->positions()->sync($request->positions);
 
         return redirect()->route('user.show', [
