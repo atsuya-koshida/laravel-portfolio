@@ -52,6 +52,7 @@ class PostController extends Controller
     {
         $post->fill($request->all());
         $post->user_id = $request->user()->id;
+        $post->prefecture_id = $request->prefecture_id;
         $post->save();
 
         $request->tags->each(function ($tag_name) use ($post) {
@@ -64,6 +65,7 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
+        $prefectures = Prefecture::all();
         $tag_names = $post->tags->map(function ($tag) {
             return ['text' => $tag->name];
         });
@@ -76,12 +78,15 @@ class PostController extends Controller
             'post' => $post,
             'tag_names' => $tag_names,
             'all_tag_names' => $all_tag_names,
+            'prefectures' => $prefectures,
         ]);
     }
 
     public function update(PostRequest $request, Post $post)
     {
-        $post->fill($request->all())->save();
+        $post->fill($request->all());
+        $post->prefecture_id = $request->prefecture_id;
+        $post->save();
 
         $post->tags()->detach();
         $request->tags->each(function ($tag_name) use ($post) {

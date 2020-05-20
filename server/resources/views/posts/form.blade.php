@@ -11,7 +11,11 @@
   <select name="prefecture_id">
     <option value="" hidden>都道府県を選んでください</option>
     @foreach ($prefectures as $prefecture)
+    @if ($prefecture->id === $post->prefecture_id)
+    <option value="{{ $prefecture->id }}" selected>{{ $prefecture->name }}</option>
+    @else
     <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
+    @endif
     @endforeach
   </select>
 </div>
