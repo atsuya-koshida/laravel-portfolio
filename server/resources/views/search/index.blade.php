@@ -12,10 +12,10 @@
         {{-- 絞り込み --}}
         <div class="narrow-down">
           <p>絞り込み</p>
-          <form method="GET" action="{{ route('search') }}">
+          <form>
             <div class="search-box">
               <label class="text-label">フリーワードで検索</label>
-              <input type="text" placeholder="検索" name="title">
+              <input type="text" placeholder="検索" name="title" value="{{ $search_title }}">
               <i class="fas fa-search"></i>
             </div>
             <div class="select-box selected">

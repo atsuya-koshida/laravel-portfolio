@@ -16,6 +16,7 @@ class Post extends Model
         'activity_place',
         'activity_time',
         'description',
+        'prefecture_id'
     ];
     public function user(): BelongsTo
     {

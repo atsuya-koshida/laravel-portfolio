@@ -18,6 +18,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/post', 'PostController')->middleware('auth');
+Route::get('/search', 'PostController@search')->name('search');
 
 Route::resource('/user', 'UserController');
 Route::resource('/group', 'GroupController')->middleware('auth');
