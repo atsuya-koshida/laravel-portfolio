@@ -34,38 +34,42 @@
           </div>
           <div class="user-section__bottom">
             @if ( isset($age) )
-            <p class="user-age">
-              年齢：{{ $age }}歳
-            </p>
+              <p class="user-age">
+                年齢：{{ $age }}歳
+              </p>
             @else
-            <p class="user-age">
-              年齢：設定されていません
-            </p>
+              <p class="user-age">
+                年齢：設定されていません
+              </p>
             @endif
+
             @if (!empty($user->prefecture))
-            <p class="user-prefecture">
-              都道府県：{{ $user->prefecture->name }}
-            </p>
+              <p class="user-prefecture">
+                都道府県：{{ $user->prefecture->name }}
+              </p>
             @else
-            <p class="user-prefecture">
-              都道府県：設定されていません
-            </p>
+              <p class="user-prefecture">
+                都道府県：設定されていません
+              </p>
             @endif
-            <p class="user-position">
-              ポジション：
-              @if(!empty($position->pivot))
-              @foreach ($positions as $position)
-              <span>
-                {{ $position->name }}
-                @if (!$loop->last)
-                /
-                @endif
-              </span>
-              @endforeach
-              @else
-              設定されていません
+
+            @foreach ($positions as $position)
+              @if ($loop->first)
+              <p class="user-position">
+                ポジション：
               @endif
-            </p>
+              @if (!empty($position))
+                <span>
+                  {{ $position->name }}
+                  @if (!$loop->last)
+                  /
+                  @endif
+                </span>
+              @endif
+              @if ($loop->last)
+              </p> 
+              @endif
+            @endforeach
             <p class="user-follow">フォロー：<a href="{{ route('user.followings', ['user' => $user]) }}">{{ $user->count_followings }}</a></p>
             <p class="user-follower">フォロワー：<a href="{{ route('user.followers', ['user' => $user]) }}">{{ $user->count_followers }}</a></p>
           </div>
