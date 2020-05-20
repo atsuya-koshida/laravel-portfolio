@@ -61,6 +61,7 @@ class UserController extends Controller
         $user->fill($request->except(['image']));
         $user->prefecture_id = $request->prefecture_id;
         $user->save();
+
         if(!is_null($request['image'])){
             $file_path = $request->file('image')->store('public/images');
             $user->image = basename($file_path);

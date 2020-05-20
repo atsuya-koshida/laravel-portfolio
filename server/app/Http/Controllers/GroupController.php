@@ -61,9 +61,9 @@ class GroupController extends Controller
     {
         $user = Auth::user();
         if($user instanceof User){
-            $group_users = $group->users;   //グループに所属するユーザー
-            $followings = $user->followings;    //ユーザーがフォローしているユーザー達
-            $diff_users = $followings->diff($group_users);  //フォロー中のユーザーからグループに所属するユーザーを抜いたコレクション
+            $group_users = $group->users;
+            $followings = $user->followings;
+            $diff_users = $followings->diff($group_users);
             return view('groups.edit', [
                 'group' => $group,
                 'group_users' => $group_users,

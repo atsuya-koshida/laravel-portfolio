@@ -16,41 +16,29 @@ class PostController extends Controller
         $this->authorizeResource(Post::class, 'post');
     }
 
-    public function search(Request $request)
+    public function index(Request $request)
     {
         $search_title = $request->input('title');
         $search_prefecture = $request->input('prefecture_id');
         $prefectures = Prefecture::all();
-
-        if(!empty($search_title) && empty($search_prefecture))
-        {
-            $posts = Post::latest()->where('title', 'like', '%'.$search_title.'%')->paginate(5);
-            
-        } elseif(!empty($search_prefecture) && empty($search_title)) {
-
-            $posts = Post::latest()->where('prefecture_id', $search_prefecture)->paginate(5);
-
-        } elseif(empty($search_title) && empty($search_prefecture)) {
-
-            $posts = Post::latest()->paginate(5);
+ 
+        $query = Post::query();
+ 
+        if (!empty($search_title)) {
+            $query->where('title', 'LIKE', "%{$search_title}%");
         }
-        //検索フォームへ
-        return view('search.index',[
+
+        if (!empty($search_prefecture)) {
+            $query->where('prefecture_id', $search_prefecture);
+        }
+ 
+        $posts = $query->orderBy('created_at', 'desc')->paginate(5);
+
+        return view('posts.index', [
             'posts' => $posts,
             'prefectures' => $prefectures,
             'search_title' => $search_title,
             'search_prefecture' => $search_prefecture,
-            
-        ]);
-    }
-
-    public function index()
-    {
-        $posts = Post::latest()->paginate(5);
-        $prefectures = Prefecture::all();
-        return view('posts.index', [
-            'posts' => $posts,
-            'prefectures' => $prefectures,
         ]);
     }
 
