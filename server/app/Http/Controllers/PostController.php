@@ -18,7 +18,7 @@ class PostController extends Controller
 
     public function index()
     {
-        $posts = Post::all()->sortByDesc('created_at');
+        $posts = Post::latest()->paginate(5);
         $prefectures = Prefecture::all();
         return view('posts.index', [
             'posts' => $posts,
