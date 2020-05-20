@@ -37,12 +37,14 @@ class PostController extends Controller
 
     public function create()
     {
+        $prefectures = Prefecture::all();
         $all_tag_names = Tag::all()->map(function ($tag) {
             return ['text' => $tag->name];
         });
 
         return view('posts.create', [
             'all_tag_names' => $all_tag_names,
+            'prefectures' => $prefectures,
         ]);
     }
 
