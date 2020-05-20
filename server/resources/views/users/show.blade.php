@@ -33,17 +33,6 @@
             @endif
           </div>
           <div class="user-section__bottom">
-            <p class="user-position">
-              ポジション：
-              @foreach ($positions as $position)
-              <span>
-                {{ $position->name }}
-                @if (!$loop->last)
-                /
-                @endif
-              </span>
-              @endforeach
-            </p>
             @if ( isset($age) )
             <p class="user-age">
               年齢：{{ $age }}歳
@@ -53,6 +42,30 @@
               年齢：設定されていません
             </p>
             @endif
+            @if (!empty($user->prefecture))
+            <p class="user-prefecture">
+              都道府県：{{ $user->prefecture->name }}
+            </p>
+            @else
+            <p class="user-prefecture">
+              都道府県：設定されていません
+            </p>
+            @endif
+            <p class="user-position">
+              ポジション：
+              @if(!empty($position->pivot))
+              @foreach ($positions as $position)
+              <span>
+                {{ $position->name }}
+                @if (!$loop->last)
+                /
+                @endif
+              </span>
+              @endforeach
+              @else
+              設定されていません
+              @endif
+            </p>
             <p class="user-follow">フォロー：<a href="{{ route('user.followings', ['user' => $user]) }}">{{ $user->count_followings }}</a></p>
             <p class="user-follower">フォロワー：<a href="{{ route('user.followers', ['user' => $user]) }}">{{ $user->count_followers }}</a></p>
           </div>

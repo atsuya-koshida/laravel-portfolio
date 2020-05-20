@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Tag;
 use App\Http\Requests\PostRequest;
+use App\Prefecture;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -18,7 +19,11 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all()->sortByDesc('created_at');
-        return view('posts.index', ['posts' => $posts]);
+        $prefectures = Prefecture::all();
+        return view('posts.index', [
+            'posts' => $posts,
+            'prefectures' => $prefectures,
+        ]);
     }
 
     public function show(Post $post)

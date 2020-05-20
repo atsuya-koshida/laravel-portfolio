@@ -24,6 +24,7 @@ class User extends Authenticatable
         'password',
         'birthday',
         'image',
+        'prefecture_id',
     ];
 
     public function posts(): HasMany
