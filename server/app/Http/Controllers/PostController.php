@@ -16,13 +16,29 @@ class PostController extends Controller
         $this->authorizeResource(Post::class, 'post');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $posts = Post::all()->sortByDesc('created_at');
+        $search_title = $request->input('title');
+        $search_prefecture = $request->input('prefecture_id');
         $prefectures = Prefecture::all();
+ 
+        $query = Post::query();
+ 
+        if (!empty($search_title)) {
+            $query->where('title', 'LIKE', "%{$search_title}%");
+        }
+
+        if (!empty($search_prefecture)) {
+            $query->where('prefecture_id', $search_prefecture);
+        }
+ 
+        $posts = $query->orderBy('created_at', 'desc')->paginate(5);
+
         return view('posts.index', [
             'posts' => $posts,
             'prefectures' => $prefectures,
+            'search_title' => $search_title,
+            'search_prefecture' => $search_prefecture,
         ]);
     }
 
