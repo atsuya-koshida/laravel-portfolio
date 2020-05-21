@@ -110,6 +110,12 @@ class PostController extends Controller
     {
         $post->fill($request->all());
         $post->prefecture_id = $request->prefecture_id;
+
+        if(!is_null($request['image'])){
+            $file_path = $request->file('image')->store('public/images');
+            $post->image = basename($file_path);
+        }
+        
         $post->save();
 
         $post->tags()->detach();
