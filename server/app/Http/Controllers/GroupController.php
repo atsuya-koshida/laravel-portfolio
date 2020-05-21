@@ -49,6 +49,10 @@ class GroupController extends Controller
     {
         $group->fill($request->all());
         $users = $request->users;
+        if(!is_null($request['image'])){
+            $file_path = $request->file('image')->store('public/images');
+            $group->image = basename($file_path);
+        }
         $group->save();
         $group->users()->attach(Auth::user());
         foreach ($users as $key => $user) {
@@ -67,6 +71,7 @@ class GroupController extends Controller
             return view('groups.edit', [
                 'group' => $group,
                 'group_users' => $group_users,
+                'followings' => $followings,
                 'diff_users' => $diff_users,
             ]);
         }
