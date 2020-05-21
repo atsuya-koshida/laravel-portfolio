@@ -11,7 +11,7 @@
       <li class="tags">
         <ul>
           @foreach ($post->tags as $tag)
-          <li><a href="#">{{ $tag->name }}</a></li>
+          <li><a href="{{ route('tag.show', ['name' => $tag->name]) }}">{{ $tag->name }}</a></li>
           @endforeach
         </ul>
       </li>
