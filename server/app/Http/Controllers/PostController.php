@@ -6,6 +6,7 @@ use App\Post;
 use App\Tag;
 use App\Http\Requests\PostRequest;
 use App\Prefecture;
+use App\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -130,5 +131,21 @@ class PostController extends Controller
     {
         $post->delete();
         return redirect()->route('home');
+    }
+
+    public function region_show(string $name)
+    {
+        $posts = Post::all();
+        $region = Region::where('name', $name)->first();
+        Log::debug($region);
+
+        foreach($posts as $post) {
+            Log::debug($post->prefecture->region->name);;
+        }
+
+        return view('posts.region', [
+            'posts' => $posts,
+            'region' => $region,
+        ]);
     }
 }
