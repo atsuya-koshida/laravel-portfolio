@@ -32,7 +32,7 @@ class PostController extends Controller
             $query->where('prefecture_id', $search_prefecture);
         }
  
-        $posts = $query->orderBy('created_at', 'desc')->paginate(5);
+        $posts = $query->orderBy('created_at', 'desc')->paginate(10);
 
         return view('posts.index', [
             'posts' => $posts,
@@ -51,7 +51,7 @@ class PostController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Post $post)
     {
         $prefectures = Prefecture::all();
         $all_tag_names = Tag::all()->map(function ($tag) {
@@ -61,6 +61,7 @@ class PostController extends Controller
         return view('posts.create', [
             'all_tag_names' => $all_tag_names,
             'prefectures' => $prefectures,
+            'post' => $post,
         ]);
     }
 
@@ -69,7 +70,14 @@ class PostController extends Controller
         $post->fill($request->all());
         $post->user_id = $request->user()->id;
         $post->prefecture_id = $request->prefecture_id;
+
+        if(!is_null($request['image'])){
+            $file_path = $request->file('image')->store('public/images');
+            $post->image = basename($file_path);
+        }
+        
         $post->save();
+
 
         $request->tags->each(function ($tag_name) use ($post) {
             $tag = Tag::firstOrCreate(['name' => $tag_name]);
@@ -102,6 +110,12 @@ class PostController extends Controller
     {
         $post->fill($request->all());
         $post->prefecture_id = $request->prefecture_id;
+
+        if(!is_null($request['image'])){
+            $file_path = $request->file('image')->store('public/images');
+            $post->image = basename($file_path);
+        }
+        
         $post->save();
 
         $post->tags()->detach();

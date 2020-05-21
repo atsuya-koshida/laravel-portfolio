@@ -18,6 +18,7 @@
           <div class="post-section__title">
             <p>新着投稿</p>
           </div>
+          {{ $posts->links('pagination::default') }}
           {{-- 記事のカード --}}
           @foreach ($posts as $post)
             @include('shared/card')

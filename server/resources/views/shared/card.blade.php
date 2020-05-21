@@ -1,6 +1,10 @@
 <div class="blog-card">
   <div class="meta">
+    @if ($post->image !== null)
+    <img src="/storage/images/{{ $post->image }}" class="photo">
+    @else
     <img src="/images/basket6.jpeg" class="photo">
+    @endif
     <ul class="details">
       <li class="author"><a href="{{ route('user.show', ['user' => $post->user_id]) }}">{{ $post->user->name }}</a></li>
       <li class="date">{{ $post->created_at->format('Y/m/d H:i') }}</li>

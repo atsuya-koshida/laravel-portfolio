@@ -26,6 +26,7 @@ class PostRequest extends FormRequest
         return [
             'title' => 'required|max:50',
             'team_name' => 'required|max:50',
+            'image',
             'activity_place' => 'required|max:100',
             'activity_time' => 'required|max:100',
             'description' => 'required|max:500',
