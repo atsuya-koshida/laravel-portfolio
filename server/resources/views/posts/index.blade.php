@@ -31,7 +31,7 @@
               </select>
             </div>
             <div class="submit-box">
-              <input type="submit" value="投稿する" class="submit-btn">
+              <input type="submit" value="検索する" class="submit-btn">
             </div>
           </form>
         </div>
