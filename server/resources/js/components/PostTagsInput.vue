@@ -57,7 +57,7 @@ export default {
     margin-top: 10px;
   }
 </style>
-<style lang="css">
+<style lang="css" scoped>
   .vue-tags-input .ti-tag {
     background: transparent;
     color: #747373;

@@ -3,10 +3,11 @@ jobs:
   build:
     docker:
       # Specify the version you desire here
-      - image: circleci/php:7.2-node-browsers
+      - image: circleci/php:7.2
+      - image: circleci/mysql:5.7
     steps:
       - checkout
-      - run: composer install -n --prefer-dist
+      - run: composer install -n --prefer-dist --working-dir=./server
       - run: npm ci
       - run: npm run dev
       - run:
