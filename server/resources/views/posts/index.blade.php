@@ -23,7 +23,7 @@
                 <option value="" hidden>都道府県を選んでください</option>
                 @foreach ($prefectures as $prefecture)
                 @if ($search_prefecture === $prefecture->id)
-                <option value="{{ $prefecture->id }}" selected>{{ $prefecture->name }}</option>
+                <option selected value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
                 @else
                 <option value="{{ $prefecture->id }}">{{ $prefecture->name }}</option>
                 @endif

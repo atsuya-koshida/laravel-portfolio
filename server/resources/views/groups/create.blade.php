@@ -12,6 +12,7 @@
             <div class="group-section__title">
               <p>チャットグループを作成</p>
             </div>
+            @include('error_card_list')
             <form action="{{ route('group.store') }}" method="POST" enctype="multipart/form-data">
               @csrf
               <div class="text-box">
@@ -22,14 +23,12 @@
                 <p>画像</p>
                 <input type="file" name="image">
               </div>
-              <div class="text-box">
-                <p style="margin-bottom: 10px;">フォロー中のユーザーを追加</p>
-                <select id="select" name="users[]" multiple="multiple" placeholder="追加するユーザーを選択して下さい">
-                  @foreach ($followings as $user)
-                  <option value="{{ $user->id }}">{{ $user->name }}</option>
-                  @endforeach
-                </select>              
-              </div>
+              <p style="margin-bottom: 10px;">フォロー中のユーザーを追加</p>
+              <select id="select" name="users[]" multiple="multiple" placeholder="追加するユーザーを選択して下さい">
+                @foreach ($followings as $user)
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                @endforeach
+              </select>
               <div class="submit-box">
                 <input type="submit" value="作成" class="submit-btn">
               </div>
