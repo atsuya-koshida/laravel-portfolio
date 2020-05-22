@@ -18,7 +18,7 @@ class CreatePrefecturesTable extends Migration
             $table->integer('region_id')->unsigned();
             $table->integer('code');
             $table->string('name');
-            $table->foreign('region_id')->references('id')->on('regions');
+            $table->foreign('region_id')->references('id')->on('regions')->onDelete('cascade');
         });
     }
 
