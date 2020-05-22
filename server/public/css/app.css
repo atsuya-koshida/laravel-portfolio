@@ -560,24 +560,6 @@ select {
   display: inline-block;
 }
 
-.blog-card .details .author:before {
-  font-family: FontAwesome;
-  margin-right: 10px;
-  content: "\F007";
-}
-
-.blog-card .details .date:before {
-  font-family: FontAwesome;
-  margin-right: 10px;
-  content: "\F133";
-}
-
-.blog-card .details .tags ul:before {
-  font-family: FontAwesome;
-  content: "\F02B";
-  margin-right: 10px;
-}
-
 .blog-card .details .tags li {
   margin-right: 2px;
 }
