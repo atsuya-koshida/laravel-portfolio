@@ -12,6 +12,7 @@
             <div class="group-section__title">
               <p>「{{ $group->name }}」を編集</p>
             </div>
+            @include('error_card_list')
             <form action="{{ route('group.update', ['group' => $group]) }}" method="POST" enctype="multipart/form-data">
               @method('PATCH')
               @csrf
