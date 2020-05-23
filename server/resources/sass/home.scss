@@ -56,7 +56,7 @@
         position: relative;
         text-align: left;
         width: 30%;
-        background-color: orange;
+        background-color: $color_blue;
         color: white;
         text-align: center;
         padding: 10px 0;
@@ -89,7 +89,7 @@
         }
         input[type='submit'] {
           width: 100%;
-          background-color: orange;
+          background-color: $color_blue;
           color: #fff;
           font-size: 18px;
           border: 0;
@@ -99,7 +99,7 @@
           transition: background-color 0.3s;
 
           &:hover {
-            background-color: #FFCC00;
+            opacity: 0.8;
           }
         }
       }

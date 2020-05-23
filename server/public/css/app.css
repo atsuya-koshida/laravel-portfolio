@@ -195,7 +195,7 @@ select {
   position: relative;
   width: 200px;
   padding: 0.8em;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   color: #1b1b1b;
   background: #fff;
@@ -223,6 +223,7 @@ select {
 }
 
 .main-btn.blue {
+  text-align: center;
   font-size: 100%;
   background-color: #3498db;
   color: #fff;
@@ -241,6 +242,7 @@ select {
 }
 
 .main-btn.green {
+  text-align: center;
   font-size: 100%;
   background-color: #5ad67d;
   color: #fff;
@@ -375,7 +377,7 @@ select {
   position: relative;
   text-align: left;
   width: 30%;
-  background-color: orange;
+  background-color: #3498db;
   color: white;
   text-align: center;
   padding: 10px 0;
@@ -408,7 +410,7 @@ select {
 
 .main-container .post-section .comment-box .comment-form input[type=submit] {
   width: 100%;
-  background-color: orange;
+  background-color: #3498db;
   color: #fff;
   font-size: 18px;
   border: 0;
@@ -419,7 +421,7 @@ select {
 }
 
 .main-container .post-section .comment-box .comment-form input[type=submit]:hover {
-  background-color: #FFCC00;
+  opacity: 0.8;
 }
 
 .main-container .post-section .comment-box .comments {

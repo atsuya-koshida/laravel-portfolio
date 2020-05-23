@@ -76,7 +76,7 @@
         </div>
         <div class="post-section">
           <div class="post-section__title">
-            <p>{{ $user->name }}の投稿一覧</p>
+            <p style="padding-top: 10px;">{{ $user->name }}の投稿一覧</p>
           </div>
           {{ $posts->links('pagination::default') }}
           {{-- 記事のカード --}}
