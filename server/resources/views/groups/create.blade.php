@@ -23,13 +23,13 @@
                 <p>画像</p>
                 <input type="file" name="image">
               </div>
-              <div class="check-box">
-                <p style="margin-bottom: 10px;">フォロー中のユーザーを追加</p>
-                <select id="select" name="users[]" multiple="multiple" placeholder="追加するユーザーを選択して下さい">
-                  @foreach ($followings as $user)
-                  <option value="{{ $user->id }}">{{ $user->name }}</option>
-                  @endforeach
-                </select>
+              <p style="width: 90%; margin: 0 auto 10px;">フォロー中のユーザーを追加</p>
+              <div class="custom-checkboxes">
+                @foreach ($followings as $user)
+                <label>
+                  <input type="checkbox" name="users[]" value="{{ $user->id }}">{{ $user->name }}
+                </label>
+                @endforeach
               </div>
               <div class="submit-box">
                 <input type="submit" value="作成" class="submit-btn">

@@ -24,18 +24,20 @@
                 <p>画像</p>
                 <input type="file" name="image">
               </div>
-              <div class="text-box">
-                <p style="margin-bottom: 10px;">フォロー中のユーザーを追加</p>
-                <select id="select" name="users[]" multiple="multiple" placeholder="追加するユーザーを選択して下さい">
-                  @foreach ($group_users as $group_user)
-                  @if ($group_user->id !== Auth::user()->id)
-                  <option value="{{ $group_user->id }}" selected>{{ $group_user->name }}</option>
-                  @endif
-                  @endforeach
-                  @foreach ($diff_users as $diff_user)
-                  <option value="{{ $diff_user->id }}">{{ $diff_user->name }}</option>
-                  @endforeach
-                </select>              
+              <p style="width: 90%; margin: 0 auto 10px;">フォロー中のユーザーを追加</p>
+              <div class="custom-checkboxes">
+                @foreach ($group_users as $group_user)
+                @if ($group_user->id !== Auth::user()->id)
+                <label>
+                  <input type="checkbox" name="users[]" checked value="{{ $group_user->id }}">{{ $group_user->name }}
+                </label>
+                @endif
+                @endforeach
+                @foreach ($diff_users as $diff_user)
+                <label>
+                  <input type="checkbox" name="users[]" value="{{ $diff_user->id }}">{{ $diff_user->name }}
+                </label>
+                @endforeach
               </div>
               <div class="submit-box">
                 <input type="submit" value="更新する" class="submit-btn">
