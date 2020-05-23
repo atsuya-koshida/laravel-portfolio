@@ -31,14 +31,14 @@
               </select>
             </div>
             <div class="submit-box">
-              <input type="submit" value="検索する" class="submit-btn">
+              <input type="submit" value="検索する" class="main-btn blue">
             </div>
           </form>
         </div>
         {{-- 投稿一覧 --}}
         <div class="post-section">
           <div class="post-section__title">
-            <p>投稿一覧</p>
+            <p style="padding-top: 10px;">投稿一覧</p>
           </div>
           {{ $posts->links('pagination::default') }}
           {{-- 記事のカード --}}

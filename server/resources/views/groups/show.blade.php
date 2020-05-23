@@ -20,7 +20,7 @@
           </p>
           </div>
         <div class="chat-header__right">
-          <a href="{{ route('group.edit', ['group' => $group]) }}" class="edit-btn">編集</a>
+          <a href="{{ route('group.edit', ['group' => $group]) }}" class="main-btn blue small">編集</a>
         </div>
       </div>
       <div class="chat-messages">
@@ -41,7 +41,7 @@
           <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
           <input type="hidden" name="group_id" value="{{ $group->id }}">
           <input type="text" name="text" class="chat-message" placeholder="メッセージを入力して下さい">
-          <input type="submit" value="送信する" class="chat-submit">
+          <input type="submit" value="送信する" class="main-btn blue chat">
         </form>
       </div>
     </div>

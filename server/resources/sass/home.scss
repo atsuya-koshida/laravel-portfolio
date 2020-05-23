@@ -23,7 +23,6 @@
   }
   
   .post-section {
-    margin-top: 20px;
 
     &__title {
       text-align: center;
@@ -126,5 +125,11 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width:768px) {
+  .main-container {
+    width: 100%;
   }
 }

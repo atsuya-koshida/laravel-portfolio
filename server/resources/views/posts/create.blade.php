@@ -16,7 +16,7 @@
             <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
               @include('posts/form')
               <div class="submit-box">
-                <input type="submit" value="投稿する" class="submit-btn">
+                <input type="submit" value="投稿する" class="main-btn blue">
               </div>
             </form>
           </div>
