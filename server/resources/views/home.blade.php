@@ -16,7 +16,7 @@
         {{-- 新着投稿 --}}
         <div class="post-section">
           <div class="post-section__title">
-            <p>新着投稿</p>
+            <p style="padding-top: 10px;">新着投稿</p>
           </div>
           {{ $posts->links('pagination::default') }}
           {{-- 記事のカード --}}

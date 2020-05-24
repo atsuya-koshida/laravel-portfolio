@@ -32,7 +32,7 @@
                 @endforeach
               </div>
               <div class="submit-box">
-                <input type="submit" value="作成" class="submit-btn">
+                <input type="submit" value="作成" class="main-btn blue">
               </div>
             </form>
           </div>

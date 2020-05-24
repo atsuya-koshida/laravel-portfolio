@@ -56,7 +56,7 @@
                 </select>              
               </div>
               <div class="submit-box">
-                <input type="submit" value="更新する" class="submit-btn">
+                <input type="submit" value="更新する" class="main-btn blue">
               </div>
             </form>
           </div>
