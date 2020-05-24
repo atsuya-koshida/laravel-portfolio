@@ -361,8 +361,9 @@ select {
 }
 
 .main-container .post-section table {
-  width: 100%;
+  width: 90%;
   border-collapse: collapse;
+  margin: 0 auto;
 }
 
 .main-container .post-section table tr {
@@ -1272,7 +1273,7 @@ textarea::placeholder {
 }
 
 .chat-wrapper .chat-main {
-  width: calc(100vw - 300px);
+  width: 78%;
 }
 
 .chat-wrapper .chat-main .chat-header {
@@ -1320,6 +1321,30 @@ textarea::placeholder {
   padding: 20px;
 }
 
+.chat-wrapper .chat-messages .message::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -30px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}
+
+.chat-wrapper .chat-messages .message.green {
+  background: #99f5cd;
+}
+
+.chat-wrapper .chat-messages .message.green::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-left: 15px solid #99f5cd;
+}
+
 .chat-wrapper .chat-messages .message__info {
   display: flex;
   margin-bottom: 10px;
@@ -1337,11 +1362,11 @@ textarea::placeholder {
 }
 
 .chat-wrapper .chat-form-box {
-  height: 90px;
   position: fixed;
   bottom: 0;
   right: 0;
-  left: 300px;
+  left: 22%;
+  height: 90px;
   background-color: #fff;
   border-top: 1px solid #b5b5b5;
   box-sizing: border-box;
@@ -1374,7 +1399,7 @@ textarea::placeholder {
 }
 
 .chat-wrapper .chat-side {
-  width: 300px;
+  width: 22%;
   border-right: 1px solid #b5b5b5;
   box-sizing: border-box;
 }

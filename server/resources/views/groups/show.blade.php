@@ -25,7 +25,11 @@
       </div>
       <div class="chat-messages">
         @foreach ($messages as $message)
+        @if ($message->user_id !== Auth::user()->id)
         <div class="message">
+        @else
+        <div class="message green">
+        @endif
           <div class="message__info">
             <p class="user-name">{{ $message->user->name }}</p>
             <p class="send-time">{{ $message->created_at->format('Y/m/d H:i') }}</p>

@@ -6,7 +6,7 @@
   padding-top: $headerHeight;
 
   .chat-main {
-    width: calc(100vw - 300px);
+    width: 78%;
 
     .chat-header {
       height: 100px;
@@ -51,7 +51,31 @@
       background: #e0edff;
       margin: 1.5em 0 1.5em 15px;
       padding: 20px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: -30px;
+        margin-top: -15px;
+        border: 15px solid transparent;
+        border-right: 15px solid #e0edff;
+      }
       
+      &.green {
+        background: rgb(153, 245, 205);
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 100%;
+          margin-top: -15px;
+          border: 15px solid transparent;
+          border-left: 15px solid rgb(153, 245, 205);
+        }
+      }
+
       &__info {
         display: flex;
         margin-bottom: 10px;
@@ -71,11 +95,11 @@
   }
 
   .chat-form-box {
-    height: 90px;
     position: fixed;
     bottom: 0;
     right: 0;
-    left: 300px;
+    left: 22%;
+    height: 90px;
     background-color: #fff;
     border-top: 1px solid #b5b5b5;
     box-sizing: border-box;
@@ -108,7 +132,7 @@
   }
   
   .chat-side {
-    width: 300px;
+    width: 22%;
     border-right: 1px solid #b5b5b5;
     box-sizing: border-box;
     
