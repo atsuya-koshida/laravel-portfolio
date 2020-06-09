@@ -6,7 +6,32 @@
 <div class="wrapper">
   @include('shared/header')
   <div class="chat-wrapper">
-    @include('shared/chat_side')
+    <div class="chat-side show">
+      <div class="chat-side__nav">
+        <p>{{ Auth::user()->name }}</p>
+        <div>
+          <a href="{{ route('group.create') }}" class="circle-btn circle-btn-blue"><i class="fas fa-plus"></i></a>
+        </div>
+      </div>
+      <div class="groups">
+        @foreach ($groups as $group_item)
+        <div class="group">
+          <div style="padding-top: 10px;">
+            <a href="{{ route('group.show', ['group' => $group_item]) }}">
+              <p class="group__name">{{ mb_strimwidth($group_item->name, 0, 15, "...", 'UTF-8') }}</p>
+            </a>
+          </div>
+          <div class="group__image">
+            @if ($group_item->image !== null)
+            <img src="{{ $group_item->image }}" alt="noimage">
+            @else
+            <img src="/images/noimageblack.png" alt="noimage">
+            @endif
+          </div>
+        </div>
+        @endforeach
+      </div>
+    </div>
     
     <div class="chat-main">
       <div class="chat-header">
@@ -20,7 +45,7 @@
           </p>
           </div>
         <div class="chat-header__right">
-          <a href="{{ route('group.edit', ['group' => $group]) }}" class="main-btn blue small">編集</a>
+          <a href="{{ route('group.edit', ['group' => $group]) }}" class="main-btn blue small">設定</a>
         </div>
       </div>
       <div class="chat-messages">
@@ -30,11 +55,20 @@
         @else
         <div class="message green">
         @endif
-          <div class="message__info">
-            <p class="user-name">{{ $message->user->name }}</p>
-            <p class="send-time">{{ $message->created_at->format('Y/m/d H:i') }}</p>
+          <div class="message__image">
+            @if ($message->user->image !== null)
+            <img src="{{ $message->user->image }}" alt="noimage">
+            @else
+            <img src="/images/noimageblack.png" alt="noimage">
+            @endif
           </div>
-          <div class="message__desc">{{ $message->text }}</div>
+          <div>
+            <div class="message__info">
+              <p class="user-name">{{ $message->user->name }}</p>
+              <p class="send-time">{{ $message->created_at->format('Y/m/d H:i') }}</p>
+            </div>
+            <div class="message__desc">{{ $message->text }}</div>
+          </div>
         </div>
         @endforeach
       </div>
@@ -44,7 +78,7 @@
           @csrf
           <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
           <input type="hidden" name="group_id" value="{{ $group->id }}">
-          <input type="text" name="text" class="chat-message" placeholder="メッセージを入力して下さい">
+          <input type="text" name="text" required class="chat-message" placeholder="メッセージを入力して下さい">
           <input type="submit" value="送信する" class="main-btn blue chat">
         </form>
       </div>

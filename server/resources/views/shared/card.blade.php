@@ -1,7 +1,7 @@
 <div class="blog-card">
   <div class="meta">
     @if ($post->image !== null)
-    <img src="/storage/images/{{ $post->image }}" class="photo">
+    <img src="{{ $post->image }}" class="photo">
     @else
     <img src="/images/basket6.jpeg" class="photo">
     @endif
@@ -20,8 +20,8 @@
     </ul>
   </div>
   <div class="description">
-    <h1>{{ $post->title }}</h1>
-    <p>{!! nl2br(e($post->description)) !!}</p>
+    <h1>{{ mb_strimwidth($post->title, 0, 30, "...", 'UTF-8') }}</h1>
+    <p>{!! nl2br(e(mb_strimwidth($post->description, 0, 100, "...", 'UTF-8'))) !!}</p>
     <p class="read-more">
       <a href="{{ route('post.show', ['post' => $post]) }}">詳しく見る</a>
     </p>

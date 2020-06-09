@@ -1,79 +1,66 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+## Pray Ground
+https://playground-basketball.work/
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+バスケットボールを楽しみたい人同士が繋がるためのアプリケーションです。
+チームメンバーを募集したり、探したり、チャット機能でチームメンバーと会話を楽しむ事もできます。
 
-## About Laravel
+## テスト用アカウント
+* メールアドレス
+  test@email.com
+* パスワード
+  11111111
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 主な使用技術
+* PHP 7.2.30
+* Laravel 7.9.2
+* Vue.js 2.5.17
+* Mysql 5.7
+* Docker
+* AWS
+* CircleCi
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 本アプリの機能
+  ### ユーザー
+    * 認証機能(新規登録、ログイン、ログアウト)
+    * フォロー機能
+    * バスケのポジション登録・編集機能  
+    * 都道府県登録機能
+  ### 投稿
+    * 募集投稿の作成・編集(タイトル・チーム名・活動時間・活動場所・都道府県・タグを設定可)
+  ### 投稿検索
+    * フリーワード検索
+    * 都道府県検索
+    * タグ毎の投稿一覧ページ
+    * 日本八地方毎の投稿一覧ページ
+  ### グループチャット機能
+    * グループ作成・編集
+    * フォロー中のユーザーをグループに入れる事ができる
+    * チャット送信機能
+  ### レスポンシブデザイン
+    * 各ページレスポンシブ対応
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## 作成期間
+* 2020/04/10 PHP・Lravel学習開始
+* 2020/05/02 本アプリケーションの作成を開始
+* 2020/05/22 各機能の実装完了
+* 2020/05/25 CircleCiでの自動テスト・自動デプロイを完了
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 工夫した・苦労した部分
+* Docker・CircleCiなど、自分の製作物に取り入れたことがないものを導入していくのに苦労しました。
+* フリーワード・都道府県検索機能を実装し、ユーザーが投稿を探しやすいように工夫しました
+* ボタンの配置や配色などUIの統一感を持たせるようにし、レスポンシブ対応を行うことで見やすいアプリケーションになるよう工夫しました。
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 今後の課題・追加で実装したいこと
+#### https化(5/31 完了)
+現在httpになっていてセキュリティ的に問題があるようなので、更にセキュアな通信の為にhttpsに変更したいと思っています。
+#### テストコードの充実
+CircleCiの動作確認のためにテストコードを書きましたが、不十分だと思われるので更にテストコードを充実させてバグの少ない開発を進められるように改善していきたいです。
+#### iPhone・iPadへのレスポンシブ対応
+同じスマートフォンであっても機種によって表示に違いが出ることがわかったのでこちらへの対応を進めていきたいと思っています
+#### ユーザー同士の繋がり方を追求していきたい
+現段階の本アプリケーションは、チームメンバーを募集しているユーザーが投稿をしてそれに対して参加したいユーザーがコメントをしてユーザー同士の関わり合いが始まるという構成になっています。
+ですが、参加する側のユーザーが自分の参加できる募集投稿とマッチするまでは基本的に受け身でアクションが取れないという所が少し使いづらい部分かなと思うので、参加希望投稿機能などを実装して、参加するチームを探しているユーザーも自分からアクションを起こせるようなアプリケーションにアップデートしていきたいと思っています。
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## イメージ
+![playground](https://user-images.githubusercontent.com/59789801/82852177-21f8db00-9f3d-11ea-8248-a911d6c91a46.jpg)

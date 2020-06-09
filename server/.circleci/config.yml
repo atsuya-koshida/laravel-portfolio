@@ -1,0 +1,76 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: circleci/php:7.2-node-browsers
+      - image: circleci/mysql:5.7
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mysql:9.4
+
+    environment:
+      - DB_CONNECTION: circle_test
+
+    steps:
+      - checkout
+
+      # Install PHP Extension
+      - run: sudo docker-php-ext-install pdo_mysql
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "composer.json" }}
+
+      - run: composer install -n --prefer-dist
+
+      - save_cache:
+          paths:
+            - ./vendor
+          key: v1-dependencies-{{ checksum "composer.json" }}
+
+      - restore_cache:
+          key: npm-v1-{{ checksum "package-lock.json" }}
+
+      - run:
+          name: npm ci
+          command: |
+            if [ ! -d node_modules ]; then
+              npm ci
+            fi 
+      - save_cache:
+          key: npm-v1-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+
+      - run: npm run dev
+      - run: php ./vendor/bin/phpunit
+  deploy:
+    docker:
+      - image: circleci/php:7.2-node-browsers
+    steps:
+      - add_ssh_keys
+      - run:
+          name: deploy
+          command: |
+            ssh -o StrictHostKeyChecking=no -t webapp@${HOST_NAME} "cd laravel-portfolio2 && \
+              git pull origin master && \
+              composer install -n --no-dev --prefer-dist && \
+              npm ci && \
+              npm run prod && \
+              php artisan migrate --force && \
+              php artisan config:cache"
+workflows:
+  version: 2
+  build_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - master

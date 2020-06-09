@@ -10,12 +10,12 @@
     <div class="group">
       <div style="padding-top: 10px;">
         <a href="{{ route('group.show', ['group' => $group]) }}">
-          <p class="group__name">{{ $group->name }}</p>
+          <p class="group__name">{{ mb_strimwidth($group->name, 0, 15, "...", 'UTF-8') }}</p>
         </a>
       </div>
       <div class="group__image">
         @if ($group->image !== null)
-        <img src="/storage/images/{{ $group->image }}" alt="noimage">
+        <img src="{{ $group->image }}" alt="noimage">
         @else
         <img src="/images/noimageblack.png" alt="noimage">
         @endif
